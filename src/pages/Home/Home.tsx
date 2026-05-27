@@ -11,7 +11,6 @@ import DiscoverJobs from '../../components/DiscoverJobs/DiscoverJobs';
 import HiringBanner from '../../components/HiringBanner/HiringBanner';
 import BlogSection from '../../components/BlogSection/BlogSection';
 import BrowseJobs from '../../components/BrowseJobs/BrowseJobs';
-import Newsletter from '../../components/Newsletter/Newsletter';
 import Footer from '../../components/Footer/Footer';
 
 const Home: React.FC = () => {
@@ -29,7 +28,6 @@ const Home: React.FC = () => {
         <HiringBanner />
         <BlogSection />
         <BrowseJobs />
-        <Newsletter />
       </main>
       <Footer />
     </>
