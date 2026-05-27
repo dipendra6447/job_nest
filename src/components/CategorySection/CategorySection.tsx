@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 import './CategorySection.css';
 
 const categories = [
@@ -17,43 +18,75 @@ const categories = [
 ];
 
 const CategorySection: React.FC = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    align: 'start',
+    slidesToScroll: 1,
+    dragFree: true,
+  });
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
   return (
     <section className="category-section section-padding" id="categories" aria-label="Career categories">
       <div className="container">
         {/* Header */}
-        <div className="text-center mb-5">
-          <div className="section-label mx-auto">
-            <i className="bi bi-grid-1x2"></i> Explore Careers
+        <div className="cat-header-row mb-5">
+          <div>
+            <div className="section-label">
+              <i className="bi bi-grid-1x2"></i> Explore Careers
+            </div>
+            <h2 className="section-heading mb-1">
+              Browse by <span className="gradient-text">Job Category</span>
+            </h2>
+            <p className="section-subtext" style={{ margin: 0 }}>
+              Explore thousands of opportunities across top industries.
+            </p>
           </div>
-          <h2 className="section-heading">
-            Browse by <span className="gradient-text">Job Category</span>
-          </h2>
-          <p className="section-subtext">
-            Explore thousands of opportunities across top industries and find the perfect role for your skills.
-          </p>
+          <div className="cat-nav-buttons">
+            <button
+              className="cat-nav-btn"
+              onClick={scrollPrev}
+              aria-label="Previous categories"
+              id="cat-prev-btn"
+            >
+              <i className="bi bi-chevron-left"></i>
+            </button>
+            <button
+              className="cat-nav-btn"
+              onClick={scrollNext}
+              aria-label="Next categories"
+              id="cat-next-btn"
+            >
+              <i className="bi bi-chevron-right"></i>
+            </button>
+          </div>
         </div>
 
-        {/* Categories Grid */}
-        <div className="categories-grid">
-          {categories.map((cat, index) => (
-            <a
-              href="#"
-              className="category-card"
-              key={cat.label}
-              id={`category-card-${index}`}
-              aria-label={`Browse ${cat.label} jobs`}
-              style={{ '--cat-color': cat.color } as React.CSSProperties}
-            >
-              <div className="category-icon-wrap">
-                <i className={`bi ${cat.icon}`}></i>
-              </div>
-              <h3 className="category-label">{cat.label}</h3>
-              <p className="category-count">{cat.count} Jobs</p>
-              <div className="category-arrow">
-                <i className="bi bi-arrow-right"></i>
-              </div>
-            </a>
-          ))}
+        {/* Embla Carousel */}
+        <div className="cat-embla" ref={emblaRef} aria-label="Job categories carousel">
+          <div className="cat-embla-container">
+            {categories.map((cat, index) => (
+              <a
+                href="#"
+                className="cat-embla-slide category-card"
+                key={cat.label}
+                id={`category-card-${index}`}
+                aria-label={`Browse ${cat.label} jobs`}
+                style={{ '--cat-color': cat.color } as React.CSSProperties}
+              >
+                <div className="category-icon-wrap">
+                  <i className={`bi ${cat.icon}`}></i>
+                </div>
+                <h3 className="category-label">{cat.label}</h3>
+                <p className="category-count">{cat.count} Jobs</p>
+                <div className="category-arrow">
+                  <i className="bi bi-arrow-right"></i>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* View All */}

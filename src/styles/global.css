@@ -57,6 +57,21 @@ img {
   overflow-x: hidden;
 }
 
+/* ── Global container: 90vw max-width ── */
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl {
+  max-width: 90vw !important;
+  width: 100%;
+}
+
+.container-fluid {
+  max-width: 90vw !important;
+}
+
 /* Section padding */
 .section-padding {
   padding: var(--spacing-3xl) 0;

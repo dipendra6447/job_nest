@@ -160,7 +160,7 @@
 /* ── Floating analytics window ── */
 .promo-float-window {
   position: absolute;
-  top: 20px;
+  bottom: 20px;
   right: 16px;            /* padding from right edge of image */
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(14px);
@@ -272,7 +272,7 @@
   }
 
   .promo-float-window {
-    top: 14px;
+    bottom: 14px;
     right: 14px;
     width: 148px;
   }

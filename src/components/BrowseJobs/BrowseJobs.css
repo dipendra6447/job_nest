@@ -191,17 +191,56 @@
   gap: 10px 16px;
 }
 
+/* ── RTL Marquee ── */
+@keyframes marquee-rtl {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.browse-marquee-outer {
+  overflow: hidden;
+  /* Fade edges for polish */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.browse-marquee-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: marquee-rtl 28s linear infinite;
+}
+
+/* Pause on hover for accessibility */
+.browse-marquee-outer:hover .browse-marquee-track {
+  animation-play-state: paused;
+}
+
 .browse-company-link {
   font-size: 14px;
   font-weight: 600;
   color: var(--color-navy);
   text-decoration: none;
-  padding: 7px 20px;
+  padding: 8px 22px;
   border: 1.5px solid var(--color-border);
   border-radius: 50px;
   background: #ffffff;
   transition: all 0.22s ease;
   display: inline-block;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .browse-company-link:hover {

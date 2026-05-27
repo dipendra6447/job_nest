@@ -75,11 +75,6 @@ const StatsBanner: React.FC = () => {
               </React.Fragment>
             ))}
           </div>
-          <div className="stats-cta">
-            <a href="#" className="btn-white" id="stats-join-btn">
-              Join Today — It's Free <i className="bi bi-arrow-right ms-2"></i>
-            </a>
-          </div>
         </div>
       </div>
     </section>

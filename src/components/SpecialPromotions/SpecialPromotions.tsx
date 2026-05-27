@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 import './SpecialPromotions.css';
 import laptopImg from '../../assets/images/laptop_promo.png';
 
@@ -52,9 +53,35 @@ const promos: PromoItem[] = [
     validity: 'valid till may 17',
     gradientClass: 'sp-grad--teal',
   },
+  {
+    id: 6,
+    heading: 'Find 25% off',
+    subtext: 'Guaranteed Results.',
+    description: 'Results',
+    validity: 'valid till may 17',
+    gradientClass: 'sp-grad--dark',
+  },
+  {
+    id: 7,
+    heading: 'Find 25% off',
+    subtext: 'Guaranteed Results.',
+    description: 'Results',
+    validity: 'valid till may 17',
+    gradientClass: 'sp-grad--lavender',
+  },
 ];
 
 const SpecialPromotions: React.FC = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    align: 'start',
+    slidesToScroll: 1,
+    dragFree: true,
+  });
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
   return (
     <section
       className="sp-section"
@@ -64,21 +91,32 @@ const SpecialPromotions: React.FC = () => {
       <div className="container">
         {/* Section header row */}
         <div className="sp-header-row">
-          <h2 className="sp-section-title">Special Promotions</h2>
-          <a href="#" className="sp-view-all" id="sp-view-all-link">
-            View All Categories <i className="bi bi-arrow-right ms-1" aria-hidden="true" />
-          </a>
+          <div>
+            <h2 className="sp-section-title">Special Promotions</h2>
+          </div>
+          <div className="sp-header-right">
+            <a href="#" className="sp-view-all" id="sp-view-all-link">
+              View All Categories <i className="bi bi-arrow-right ms-1" aria-hidden="true" />
+            </a>
+            <div className="sp-nav-buttons">
+              <button className="sp-nav-btn" onClick={scrollPrev} aria-label="Previous promotions" id="sp-prev-btn">
+                <i className="bi bi-chevron-left"></i>
+              </button>
+              <button className="sp-nav-btn" onClick={scrollNext} aria-label="Next promotions" id="sp-next-btn">
+                <i className="bi bi-chevron-right"></i>
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Scrollable card track */}
-        <div className="sp-track-wrapper" role="list" aria-label="Special promotion cards">
-          <div className="sp-track">
+        {/* Embla Carousel */}
+        <div className="sp-embla" ref={emblaRef} aria-label="Special promotions carousel">
+          <div className="sp-embla-container">
             {promos.map((promo) => (
               <article
                 key={promo.id}
-                className={`sp-card ${promo.gradientClass}`}
+                className={`sp-card sp-embla-slide ${promo.gradientClass}`}
                 id={`sp-card-${promo.id}`}
-                role="listitem"
                 aria-label={`${promo.heading} promotion`}
               >
                 {/* LEFT — text */}
@@ -102,19 +140,6 @@ const SpecialPromotions: React.FC = () => {
               </article>
             ))}
           </div>
-
-          {/* Scroll arrow hint */}
-          <button
-            className="sp-scroll-arrow"
-            aria-label="Scroll promotions right"
-            id="sp-scroll-btn"
-            onClick={() => {
-              const track = document.querySelector('.sp-track') as HTMLElement;
-              if (track) track.scrollBy({ left: 320, behavior: 'smooth' });
-            }}
-          >
-            <i className="bi bi-chevron-right" aria-hidden="true" />
-          </button>
         </div>
       </div>
     </section>

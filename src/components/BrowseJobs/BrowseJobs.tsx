@@ -135,7 +135,7 @@ const BrowseJobs: React.FC = () => {
         {/* ── Divider ── */}
         <div className="browse-divider" aria-hidden="true" />
 
-        {/* ── Top Companies ── */}
+        {/* ── Top Companies — RTL Marquee ── */}
         <div className="browse-companies-block">
           <div className="browse-companies-header">
             <h3 className="browse-companies-title">Top Companies Hiring Now</h3>
@@ -143,20 +143,24 @@ const BrowseJobs: React.FC = () => {
               Discover open roles at the world's most innovative organisations
             </p>
           </div>
-          <ul className="browse-companies-list" aria-label="Top companies">
-            {companies.map((name) => (
-              <li key={name}>
+
+          {/* Marquee wrapper — two copies for seamless loop */}
+          <div className="browse-marquee-outer" aria-label="Top companies hiring now">
+            <div className="browse-marquee-track">
+              {/* Copy 1 */}
+              {[...companies, ...companies].map((name, i) => (
                 <a
+                  key={`${name}-${i}`}
                   href="#"
                   className="browse-company-link"
-                  id={`company-${name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                   aria-label={`Jobs at ${name}`}
+                  tabIndex={i < companies.length ? 0 : -1}
                 >
                   {name}
                 </a>
-              </li>
-            ))}
-          </ul>
+              ))}
+            </div>
+          </div>
         </div>
 
       </div>

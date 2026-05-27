@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 import './TrendingJobs.css';
 import JobCard from './JobCard';
 
@@ -91,6 +92,16 @@ const jobs: Job[] = [
 ];
 
 const TrendingJobs: React.FC = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    align: 'start',
+    slidesToScroll: 1,
+    dragFree: true,
+  });
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
   return (
     <section className="trending-section section-padding" id="trending" aria-label="Trending jobs">
       <div className="container">
@@ -107,16 +118,30 @@ const TrendingJobs: React.FC = () => {
               Handpicked top opportunities at leading companies
             </p>
           </div>
-          <a href="#" className="btn-outline-custom" id="view-all-jobs-btn">
-            View All Jobs <i className="bi bi-arrow-right ms-2"></i>
-          </a>
+          <div className="d-flex align-items-center gap-3">
+            <div className="trend-nav-buttons">
+              <button className="trend-nav-btn" onClick={scrollPrev} aria-label="Previous jobs" id="trend-prev-btn">
+                <i className="bi bi-chevron-left"></i>
+              </button>
+              <button className="trend-nav-btn" onClick={scrollNext} aria-label="Next jobs" id="trend-next-btn">
+                <i className="bi bi-chevron-right"></i>
+              </button>
+            </div>
+            <a href="#" className="btn-outline-custom" id="view-all-jobs-btn">
+              View All Jobs <i className="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
         </div>
 
-        {/* Jobs Grid */}
-        <div className="jobs-grid">
-          {jobs.map((job) => (
-            <JobCard key={job.id} job={job} />
-          ))}
+        {/* Embla Carousel */}
+        <div className="trend-embla" ref={emblaRef} aria-label="Trending jobs carousel">
+          <div className="trend-embla-container">
+            {jobs.map((job) => (
+              <div className="trend-embla-slide" key={job.id}>
+                <JobCard job={job} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
