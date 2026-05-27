@@ -1,0 +1,185 @@
+/* ============================================
+   HIRING BANNER — Full-Width Background Image
+   Matches reference: dark overlay + left text + right buttons
+   ============================================ */
+
+.hiring-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Full-width background image ── */
+.hiring-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  z-index: 0;
+}
+
+/* ── Dark navy/blue overlay (same look as reference) ── */
+.hiring-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 20, 70, 0.82);
+  z-index: 1;
+}
+
+/* ── Left blue accent stripe ── */
+.hiring-accent-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--color-primary);
+  z-index: 3;
+}
+
+/* ── Inner content row ── */
+.hiring-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 48px 0px;
+  width: 100%;
+}
+
+/* ── LEFT — heading + subtext ── */
+.hiring-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.hiring-title {
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: var(--font-weight-extrabold);
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  letter-spacing: -0.3px;
+}
+
+.hiring-subtext {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 480px;
+}
+
+/* ── RIGHT — CTA buttons ── */
+.hiring-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+/* Primary button — solid blue */
+.hiring-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  padding: 12px 26px;
+  border-radius: var(--radius-button);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--transition-base);
+  box-shadow: 0 4px 18px rgba(36, 84, 255, 0.45);
+}
+
+.hiring-btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(36, 84, 255, 0.60);
+  color: #ffffff;
+}
+
+/* Outline button — transparent with white border */
+.hiring-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  padding: 11px 26px;
+  border-radius: var(--radius-button);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--transition-base);
+}
+
+.hiring-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.75);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1199px) {
+  .hiring-inner {
+    padding: 44px 60px;
+  }
+}
+
+@media (max-width: 991px) {
+  .hiring-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 40px;
+    gap: 24px;
+  }
+
+  .hiring-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .hiring-banner {
+    min-height: 220px;
+  }
+
+  .hiring-inner {
+    padding: 36px 24px;
+  }
+
+  .hiring-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .hiring-right {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hiring-btn-primary,
+  .hiring-btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
