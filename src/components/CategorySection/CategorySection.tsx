@@ -2,19 +2,39 @@ import React, { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import './CategorySection.css';
 
-const categories = [
-  { icon: 'bi-laptop', label: 'Technology', count: '18,420', color: '#2454FF' },
-  { icon: 'bi-brush', label: 'Design & Creative', count: '6,280', color: '#7B3EFF' },
-  { icon: 'bi-megaphone', label: 'Marketing', count: '9,150', color: '#F59E0B' },
-  { icon: 'bi-graph-up-arrow', label: 'Finance', count: '7,330', color: '#14B87A' },
-  { icon: 'bi-heart-pulse', label: 'Healthcare', count: '12,640', color: '#EF4444' },
-  { icon: 'bi-book', label: 'Education', count: '5,870', color: '#8B5CF6' },
-  { icon: 'bi-gear', label: 'Engineering', count: '10,920', color: '#06B6D4' },
-  { icon: 'bi-people', label: 'Human Resources', count: '4,440', color: '#F97316' },
-  { icon: 'bi-bag', label: 'Sales', count: '8,720', color: '#EC4899' },
-  { icon: 'bi-shield-check', label: 'Legal', count: '3,210', color: '#6366F1' },
-  { icon: 'bi-truck', label: 'Logistics', count: '4,990', color: '#0EA5E9' },
-  { icon: 'bi-building', label: 'Real Estate', count: '2,890', color: '#84CC16' },
+import catItSoftware from '../../assets/images/categories/cat-it-software.png';
+import catMarketing from '../../assets/images/categories/cat-marketing.png';
+import catSales from '../../assets/images/categories/cat-sales.png';
+import catHealthcare from '../../assets/images/categories/cat-healthcare.png';
+import catDesign from '../../assets/images/categories/cat-design.png';
+import catFinance from '../../assets/images/categories/cat-finance.png';
+import catEngineering from '../../assets/images/categories/cat-engineering.png';
+import catEducation from '../../assets/images/categories/cat-education.png';
+import catCustomerSupport from '../../assets/images/categories/cat-customer-support.png';
+import catMedia from '../../assets/images/categories/cat-media.png';
+import catHospitality from '../../assets/images/categories/cat-hospitality.png';
+import catLogistics from '../../assets/images/categories/cat-logistics.png';
+
+interface Category {
+  image: string;
+  label: string;
+  count: string;
+  accentColor: string;
+}
+
+const categories: Category[] = [
+  { image: catItSoftware,      label: 'IT & Software',         count: '18,420', accentColor: '#7B3EFF' },
+  { image: catMarketing,       label: 'Marketing',             count: '9,150',  accentColor: '#14B87A' },
+  { image: catSales,           label: 'Sales',                 count: '8,720',  accentColor: '#F59E0B' },
+  { image: catHealthcare,      label: 'Healthcare',            count: '12,640', accentColor: '#2454FF' },
+  { image: catDesign,          label: 'Design',                count: '6,280',  accentColor: '#EC4899' },
+  { image: catFinance,         label: 'Finance',               count: '7,330',  accentColor: '#14B87A' },
+  { image: catEngineering,     label: 'Engineering',           count: '10,920', accentColor: '#06B6D4' },
+  { image: catEducation,       label: 'Education',             count: '5,870',  accentColor: '#8B5CF6' },
+  { image: catCustomerSupport, label: 'Customer Support',      count: '4,440',  accentColor: '#F59E0B' },
+  { image: catMedia,           label: 'Media & Entertainment', count: '3,560',  accentColor: '#14B87A' },
+  { image: catHospitality,     label: 'Hospitality',           count: '2,890',  accentColor: '#EC4899' },
+  { image: catLogistics,       label: 'Logistics',             count: '4,990',  accentColor: '#06B6D4' },
 ];
 
 const CategorySection: React.FC = () => {
@@ -70,20 +90,22 @@ const CategorySection: React.FC = () => {
             {categories.map((cat, index) => (
               <a
                 href="#"
-                className="cat-embla-slide category-card"
+                className="cat-embla-slide cat-card"
                 key={cat.label}
                 id={`category-card-${index}`}
                 aria-label={`Browse ${cat.label} jobs`}
-                style={{ '--cat-color': cat.color } as React.CSSProperties}
+                style={{ '--cat-accent': cat.accentColor } as React.CSSProperties}
               >
-                <div className="category-icon-wrap">
-                  <i className={`bi ${cat.icon}`}></i>
+                <div className="cat-card-img-wrap">
+                  <img
+                    src={cat.image}
+                    alt={`${cat.label} category`}
+                    className="cat-card-img"
+                    loading="lazy"
+                  />
                 </div>
-                <h3 className="category-label">{cat.label}</h3>
-                <p className="category-count">{cat.count} Jobs</p>
-                <div className="category-arrow">
-                  <i className="bi bi-arrow-right"></i>
-                </div>
+                <h3 className="cat-card-label">{cat.label}</h3>
+                <span className="cat-card-underline"></span>
               </a>
             ))}
           </div>

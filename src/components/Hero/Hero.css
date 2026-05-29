@@ -6,7 +6,7 @@
 .hero-banner-section {
   position: relative;
   min-height: 680px;
-  padding-top: calc(var(--navbar-height) + 40px);
+  padding-top: 40px;
   padding-bottom: 56px;
   background-size: cover;
   background-position: center top;
@@ -448,7 +448,7 @@
    ============================================ */
 @media (max-width: 991px) {
   .hero-banner-section {
-    padding-top: calc(var(--navbar-height) + 24px);
+    padding-top: 24px;
     padding-bottom: 40px;
     min-height: auto;
   }
