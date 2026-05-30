@@ -9,7 +9,7 @@
 .stats-card {
   background: var(--gradient-banner);
   border-radius: 28px;
-  padding: 56px 34px;
+  padding: 24px 14px;
   position: relative;
   overflow: hidden;
 }
@@ -31,7 +31,7 @@
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 8px;
 }
 
 .stat-item {

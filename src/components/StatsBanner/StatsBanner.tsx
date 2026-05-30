@@ -1,11 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './StatsBanner.css';
+import React, { useEffect, useRef, useState } from "react";
+import "./StatsBanner.css";
 
 const stats = [
-  { icon: 'bi-building', value: 85000, label: 'Hiring Companies', suffix: '+' },
-  { icon: 'bi-people-fill', value: 2400000, label: 'Active Users', suffix: '+' },
-  { icon: 'bi-bar-chart-fill', value: 98, label: 'Success Rate', suffix: '%' },
-  { icon: 'bi-briefcase-fill', value: 120000, label: 'Open Jobs', suffix: '+' },
+  { icon: "bi-building", value: 85000, label: "Hiring Companies", suffix: "+" },
+  {
+    icon: "bi-people-fill",
+    value: 2400000,
+    label: "Active Users",
+    suffix: "+",
+  },
+  { icon: "bi-bar-chart-fill", value: 98, label: "Success Rate", suffix: "%" },
+  { icon: "bi-briefcase-fill", value: 120000, label: "Open Jobs", suffix: "+" },
 ];
 
 function useCountUp(target: number, duration = 2000, start = false) {
@@ -27,14 +32,18 @@ function useCountUp(target: number, duration = 2000, start = false) {
   return count;
 }
 
-const StatItem: React.FC<{ icon: string; value: number; label: string; suffix: string; started: boolean }> = ({
-  icon, value, label, suffix, started,
-}) => {
+const StatItem: React.FC<{
+  icon: string;
+  value: number;
+  label: string;
+  suffix: string;
+  started: boolean;
+}> = ({ icon, value, label, suffix, started }) => {
   const count = useCountUp(value, 2000, started);
 
   const formatNumber = (n: number) => {
-    if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
-    if (n >= 1000) return (n / 1000).toFixed(0) + 'K';
+    if (n >= 1000000) return (n / 1000000).toFixed(1) + "M";
+    if (n >= 1000) return (n / 1000).toFixed(0) + "K";
     return n.toString();
   };
 
@@ -43,7 +52,10 @@ const StatItem: React.FC<{ icon: string; value: number; label: string; suffix: s
       <div className="stat-icon">
         <i className={`bi ${icon}`}></i>
       </div>
-      <div className="stat-number">{formatNumber(count)}{suffix}</div>
+      <div className="stat-number">
+        {formatNumber(count)}
+        {suffix}
+      </div>
       <div className="stat-label">{label}</div>
     </div>
   );
@@ -55,7 +67,12 @@ const StatsBanner: React.FC = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true);
+          observer.disconnect();
+        }
+      },
       { threshold: 0.3 }
     );
     if (ref.current) observer.observe(ref.current);
@@ -63,7 +80,12 @@ const StatsBanner: React.FC = () => {
   }, []);
 
   return (
-    <section className="stats-banner section-padding-sm" id="stats" ref={ref} aria-label="Statistics">
+    <section
+      className="stats-banner pt-3 pb-3"
+      id="stats"
+      ref={ref}
+      aria-label="Statistics"
+    >
       <div className="container">
         <div className="stats-card">
           <div className="stats-bg-glow"></div>
