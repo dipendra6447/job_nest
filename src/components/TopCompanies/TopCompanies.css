@@ -1,0 +1,341 @@
+/* ============================================
+   TOP COMPANIES HIRING NOW — Marquee Section
+   ============================================ */
+
+.top-companies-section {
+  padding-top: 40px;
+  padding-bottom: 32px;
+  background: var(--color-bg);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Section Header ── */
+.tc-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 16px;
+}
+
+.tc-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tc-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(36, 84, 255, 0.08);
+  border: 1px solid rgba(36, 84, 255, 0.15);
+  padding: 6px 16px;
+  border-radius: var(--radius-badge);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  width: fit-content;
+}
+
+.tc-label i {
+  font-size: 13px;
+}
+
+.tc-title {
+  font-size: clamp(26px, 3.2vw, var(--font-size-h2));
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-navy);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.tc-title-accent {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* View All link */
+.tc-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: 10px 22px;
+  border: 1.5px solid rgba(36, 84, 255, 0.25);
+  border-radius: var(--radius-button);
+  transition: var(--transition-base);
+  white-space: nowrap;
+}
+
+.tc-view-all:hover {
+  background: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-blue);
+}
+
+/* ============================================
+   MARQUEE — Infinite Scroll
+   ============================================ */
+.tc-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 8px 0;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+}
+
+.tc-marquee-track {
+  display: flex;
+  gap: 16px;
+  animation: marqueeScroll 40s linear infinite;
+  width: max-content;
+}
+
+.tc-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── Company Card ── */
+.tc-company-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  min-width: 230px;
+  text-decoration: none;
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.tc-company-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--tc-accent);
+  opacity: 0;
+  transition: var(--transition-base);
+}
+
+.tc-company-card:hover {
+  border-color: var(--tc-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.tc-company-card:hover::before {
+  opacity: 1;
+}
+
+/* Icon wrap */
+.tc-card-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--tc-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition-base);
+}
+
+.tc-card-icon-wrap i {
+  font-size: 20px;
+  color: var(--tc-accent);
+}
+
+.tc-company-card:hover .tc-card-icon-wrap {
+  background: var(--tc-accent);
+}
+
+.tc-company-card:hover .tc-card-icon-wrap i {
+  color: #ffffff;
+}
+
+/* Info */
+.tc-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tc-card-name {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tc-card-openings {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-gray);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Arrow */
+.tc-card-arrow {
+  font-size: 14px;
+  color: var(--color-text-gray);
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: var(--transition-fast);
+}
+
+.tc-company-card:hover .tc-card-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+  color: var(--tc-accent);
+}
+
+/* ============================================
+   STATS STRIP
+   ============================================ */
+.tc-stats-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 32px;
+  padding: 24px 32px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.tc-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  padding: 0 16px;
+}
+
+.tc-stat-number {
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-navy);
+  line-height: 1.2;
+}
+
+.tc-stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-gray);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.tc-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 991px) {
+  .top-companies-section {
+    padding-top: 32px;
+    padding-bottom: 24px;
+  }
+
+  .tc-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .tc-stats-strip {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 16px;
+  }
+
+  .tc-stat-divider {
+    display: none;
+  }
+
+  .tc-stat {
+    flex: 0 0 calc(50% - 10px);
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .top-companies-section {
+    padding-top: 24px;
+    padding-bottom: 20px;
+  }
+
+  .tc-title {
+    font-size: 24px;
+  }
+
+  .tc-company-card {
+    min-width: 200px;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+
+  .tc-card-icon-wrap {
+    width: 38px;
+    height: 38px;
+  }
+
+  .tc-card-icon-wrap i {
+    font-size: 17px;
+  }
+
+  .tc-stat {
+    flex: 0 0 100%;
+  }
+}

@@ -1,0 +1,105 @@
+/* ============================================
+   PAGINATION
+   ============================================ */
+
+.pagination-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 0 16px;
+}
+
+.pagination-list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ── Buttons ── */
+.page-btn {
+  border: 1.5px solid var(--color-border);
+  background: white;
+  color: var(--color-navy);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-family);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+}
+
+.page-number {
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+}
+
+.page-prev,
+.page-next {
+  padding: 0 16px;
+  height: 40px;
+}
+
+.page-btn:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(36,84,255,0.05);
+  transform: translateY(-1px);
+}
+
+.page-btn.active {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  color: white;
+  box-shadow: var(--shadow-blue);
+}
+
+.page-btn.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(36,84,255,0.4);
+  color: white;
+}
+
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Ellipsis */
+.page-ellipsis {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--color-text-gray);
+  font-weight: 600;
+}
+
+/* Info */
+.pagination-info {
+  font-size: 13px;
+  color: var(--color-text-gray);
+  margin: 0;
+}
+
+.pagination-info strong {
+  color: var(--color-navy);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .page-prev,
+  .page-next {
+    padding: 0 12px;
+  }
+}

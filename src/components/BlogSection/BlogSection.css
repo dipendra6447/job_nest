@@ -1,0 +1,225 @@
+/* ============================================================
+   BLOG SECTION — Expert Advice & Insights
+   Card layout: Image → Date & Author → Category tag → Title
+   ============================================================ */
+
+.blog-section {
+  background: var(--color-bg);
+}
+
+/* ── Grid ── */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ── Card Shell ── */
+.blog-card {
+  background: #ffffff;
+  border: 1.5px solid var(--color-border);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.blog-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 56px rgba(36, 84, 255, 0.13);
+  border-color: rgba(36, 84, 255, 0.22);
+}
+
+/* ── Cover Image ── */
+.blog-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.blog-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.blog-card:hover .blog-card-img {
+  transform: scale(1.06);
+}
+
+/* Category badge on top of image */
+.blog-img-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 50px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Card Body ── */
+.blog-card-body {
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+/* ── Meta Row: date • author ── */
+.blog-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.blog-meta-date {
+  font-size: 12px;
+  color: var(--color-text-gray);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.blog-meta-sep {
+  color: #d1d5db;
+  font-size: 12px;
+}
+
+.blog-meta-author {
+  font-size: 12px;
+  color: var(--color-text-gray);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Small avatar initials circle */
+.blog-author-initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 800;
+  color: #ffffff;
+  flex-shrink: 0;
+  letter-spacing: 0.3px;
+}
+
+/* ── Category Tag (below meta) ── */
+.blog-category-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+/* ── Title ── */
+.blog-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.45;
+  margin: 0;
+  transition: color 0.25s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card:hover .blog-title {
+  color: var(--color-primary);
+}
+
+/* ── Excerpt ── */
+.blog-excerpt {
+  font-size: 13.5px;
+  color: var(--color-text-gray);
+  line-height: 1.75;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* ── Card Footer ── */
+.blog-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.blog-read-time {
+  font-size: 11.5px;
+  color: var(--color-text-gray);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.blog-read-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.blog-read-link:hover {
+  gap: 8px;
+  color: var(--color-primary-dark, #1448ff);
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 575px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .blog-card-img-wrap {
+    height: 200px;
+  }
+
+  .blog-card-body {
+    padding: 18px 20px 20px;
+  }
+}

@@ -1,0 +1,107 @@
+/* ============================================
+   ACTIVE FILTERS
+   ============================================ */
+
+.active-filters {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  margin-bottom: 20px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.af-inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.af-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-navy);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.af-label i {
+  color: var(--color-primary);
+}
+
+.af-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 1;
+}
+
+.af-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(36,84,255,0.08);
+  border: 1px solid rgba(36,84,255,0.2);
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  animation: tagAppear 0.2s ease;
+}
+
+@keyframes tagAppear {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.af-remove {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: var(--transition-fast);
+  padding: 0;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.af-remove:hover {
+  background: rgba(36,84,255,0.15);
+}
+
+.af-clear-all {
+  background: none;
+  border: 1.5px solid #e0e0e0;
+  color: var(--color-text-gray);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-family);
+  padding: 5px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.af-clear-all:hover {
+  border-color: #e74c3c;
+  color: #e74c3c;
+  background: rgba(231,76,60,0.05);
+}

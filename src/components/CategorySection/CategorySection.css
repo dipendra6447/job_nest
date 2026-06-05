@@ -1,0 +1,199 @@
+/* ============================================
+   CATEGORY SECTION — 3D Card Style + Embla Carousel
+   ============================================ */
+
+.category-section {
+  background: #F8FAFF;
+  padding-bottom: 0px !important;
+}
+
+/* ── Section header ── */
+.section-heading {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin-bottom: 16px;
+}
+
+.section-subtext {
+  font-size: 16px;
+  color: var(--color-text-gray);
+  max-width: 560px;
+  line-height: 1.8;
+}
+
+/* ── Header row with nav buttons ── */
+.cat-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cat-nav-buttons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cat-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  background: #ffffff;
+  color: var(--color-navy);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.cat-nav-btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: var(--shadow-blue);
+}
+
+/* ── Embla Carousel ── */
+.cat-embla {
+  overflow: hidden;
+  padding: 10px 6px 20px;
+  margin: -10px -6px -20px;
+}
+
+.cat-embla-container {
+  display: flex;
+  gap: 18px;
+  touch-action: pan-y;
+}
+
+.cat-embla-slide {
+  flex: 0 0 calc((100% - 8 * 25px) / 8);
+  min-width: 0;
+}
+
+/* ── Individual card ── */
+.cat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 11px 16px;
+  background: #ffffff;
+  border: 1.5px solid #EDF0F7;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.cat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border-color: var(--cat-accent, #2454FF);
+  text-decoration: none;
+}
+
+/* ── Image wrapper ── */
+.cat-card-img-wrap {
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cat-card:hover .cat-card-img-wrap {
+  transform: scale(1.1) translateY(-4px);
+}
+
+.cat-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Category label ── */
+.cat-card-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0B1739;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.cat-card:hover .cat-card-label {
+  color: var(--cat-accent, #2454FF);
+}
+
+/* ── Colored underline accent bar ── */
+.cat-card-underline {
+  display: block;
+  width: 36px;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--cat-accent, #2454FF);
+  transition: width 0.3s ease;
+}
+
+.cat-card:hover .cat-card-underline {
+  width: 56px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1199px) {
+  .cat-embla-slide {
+    flex: 0 0 calc((100% - 3 * 18px) / 4);
+  }
+}
+
+@media (max-width: 991px) {
+  .cat-embla-slide {
+    flex: 0 0 calc((100% - 2 * 18px) / 3);
+  }
+
+  .cat-card-img-wrap {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cat-embla-slide {
+    flex: 0 0 calc((100% - 18px) / 3);
+  }
+
+  .cat-card {
+    padding: 20px 10px 16px;
+  }
+
+  .cat-card-img-wrap {
+    width: 76px;
+    height: 76px;
+  }
+
+  .cat-card-label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cat-embla-slide {
+    flex: 0 0 calc((100% - 18px) / 2);
+  }
+
+  .cat-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

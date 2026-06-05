@@ -1,0 +1,359 @@
+/* ============================================
+   TRENDING JOBS — Reference Match Redesign
+   ============================================ */
+
+.trending-section {
+  background: #F8FAFF;
+}
+
+/* ── Centered heading ── */
+.trending-header {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.trending-title {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  color: #0B1739;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.trending-subtitle {
+  font-size: 16px;
+  color: #6B7280;
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+.trending-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.trending-divider span {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #7B3EFF);
+  border-radius: 99px;
+}
+
+.trending-divider span:last-child {
+  background: linear-gradient(90deg, #7B3EFF, transparent);
+}
+
+.trending-divider i {
+  font-size: 8px;
+  color: #7B3EFF;
+}
+
+/* ── Filter tabs ── */
+.trending-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.trend-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: 1.5px solid #EDF0F7;
+  background: #ffffff;
+  color: #6B7280;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.trend-filter-btn:hover {
+  border-color: #7B3EFF;
+  color: #7B3EFF;
+  background: #f5f0ff;
+}
+
+.trend-filter-btn.active {
+  background: #7B3EFF;
+  border-color: #7B3EFF;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(123, 62, 255, 0.35);
+}
+
+/* ── Embla Carousel ── */
+.trend-embla {
+  overflow: hidden;
+  padding: 12px 6px 24px;
+  margin: -12px -6px -24px;
+}
+
+.trend-embla-container {
+  display: flex;
+  gap: 20px;
+  touch-action: pan-y;
+}
+
+.trend-embla-slide {
+  flex: 0 0 calc((100% - 4 * 20px) / 5);
+  min-width: 0;
+}
+
+/* ── Carousel nav row ── */
+.trending-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.trend-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #EDF0F7;
+  background: #ffffff;
+  color: #0B1739;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.trend-nav-btn:hover {
+  background: #2454FF;
+  border-color: #2454FF;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(36, 84, 255, 0.35);
+}
+
+/* ── Stats row ── */
+.trending-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid #EDF0F7;
+}
+
+.trending-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.trending-stat-icon {
+  font-size: 24px;
+  color: #7B3EFF;
+}
+
+.trending-stat-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0B1739;
+  margin-bottom: 2px;
+}
+
+.trending-stat-sub {
+  font-size: 12px;
+  color: #6B7280;
+}
+
+/* ============================================
+   JOB CARD — Reference Match
+   ============================================ */
+
+.job-card {
+  background: #ffffff;
+  border: 1.5px solid #EDF0F7;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+}
+
+/* Illustration top area */
+.job-card-illustration {
+  position: relative;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.job-card-illus-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.job-card:hover .job-card-illus-img {
+  transform: scale(1.05);
+}
+
+/* Bookmark button inside illustration */
+.job-bookmark {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #EDF0F7;
+  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6B7280;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.job-bookmark:hover {
+  background: #7B3EFF;
+  border-color: #7B3EFF;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Card body */
+.job-card-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+}
+
+/* Job title */
+.job-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0B1739;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Company row */
+.job-company-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.job-company-icon {
+  font-size: 14px;
+  color: #7B3EFF;
+}
+
+.job-company {
+  font-size: 13px;
+  color: #6B7280;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Meta: location + type */
+.job-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #6B7280;
+}
+
+.job-meta-item i {
+  font-size: 13px;
+  color: #9CA3AF;
+}
+
+/* Salary */
+.job-salary {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--apply-color, #7B3EFF);
+}
+
+/* Tags */
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.job-tag {
+  background: #F3F4F6;
+  color: #4B5563;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+}
+
+/* Apply button */
+.job-apply-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--apply-color, #7B3EFF);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: auto;
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-apply-btn:hover {
+  color: #ffffff;
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1440px) {
+  .trend-embla-slide { flex: 0 0 calc((100% - 3 * 20px) / 4); }
+}
+@media (max-width: 1199px) {
+  .trend-embla-slide { flex: 0 0 calc((100% - 2 * 20px) / 3); }
+}
+@media (max-width: 767px) {
+  .trend-embla-slide { flex: 0 0 calc((100% - 20px) / 2); }
+  .trending-stats { gap: 24px; }
+}
+@media (max-width: 480px) {
+  .trend-embla-slide { flex: 0 0 85%; }
+  .trending-filters { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; }
+  .trend-filter-btn { flex-shrink: 0; }
+}

@@ -1,0 +1,351 @@
+/* ============================================
+   JOB FILTERS SIDEBAR
+   ============================================ */
+
+.job-filters-sidebar {
+  background: white;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: var(--transition-base);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.job-filters-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.job-filters-sidebar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+/* ── Header ── */
+.jf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+
+.jf-header-left {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.jf-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.jf-active-count {
+  background: var(--color-primary);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 999px;
+  margin-left: 8px;
+}
+
+.jf-clear-btn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-family);
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 999px;
+  transition: var(--transition-fast);
+}
+
+.jf-clear-btn:hover {
+  background: rgba(36,84,255,0.06);
+}
+
+.jf-close-mobile {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-navy);
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.jf-close-mobile:hover {
+  background: var(--color-bg);
+}
+
+/* ── Body ── */
+.jf-body {
+  padding: 8px 0;
+}
+
+/* ── Sections ── */
+.jf-section {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.jf-section:last-child {
+  border-bottom: none;
+}
+
+.jf-section-header {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: var(--transition-fast);
+}
+
+.jf-section-header:hover {
+  background: var(--color-bg);
+}
+
+.jf-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+}
+
+.jf-section-title i {
+  color: var(--color-primary);
+}
+
+.jf-chevron {
+  font-size: 11px;
+  color: var(--color-text-gray);
+  transition: transform 0.3s ease;
+}
+
+.jf-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.jf-section-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.jf-section-body.expanded {
+  max-height: 600px;
+}
+
+/* ── Checkboxes ── */
+.jf-checkboxes {
+  padding: 8px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jf-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.jf-checkbox {
+  display: none;
+}
+
+.jf-checkbox-custom {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-border);
+  border-radius: 5px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.jf-checkbox:checked + .jf-checkbox-custom {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.jf-checkbox:checked + .jf-checkbox-custom::after {
+  content: '';
+  width: 5px;
+  height: 9px;
+  border: 2px solid white;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translate(-1px, -1px);
+  display: block;
+}
+
+.jf-checkbox-text {
+  font-size: 13px;
+  color: var(--color-text-gray);
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.jf-checkbox:checked ~ .jf-checkbox-text {
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+.jf-checkbox-label:hover .jf-checkbox-text {
+  color: var(--color-navy);
+}
+
+/* ── Radios ── */
+.jf-radios {
+  padding: 8px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jf-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.jf-radio {
+  display: none;
+}
+
+.jf-radio-custom {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.jf-radio:checked + .jf-radio-custom {
+  border-color: var(--color-primary);
+}
+
+.jf-radio:checked + .jf-radio-custom::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: block;
+}
+
+.jf-radio-text {
+  font-size: 13px;
+  color: var(--color-text-gray);
+  font-weight: 500;
+}
+
+.jf-radio:checked ~ .jf-radio-text {
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+/* ── Skills grid ── */
+.jf-skills-grid {
+  padding: 8px 24px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.jf-skill-tag {
+  border: 1.5px solid var(--color-border);
+  background: white;
+  color: var(--color-text-gray);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--font-family);
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.jf-skill-tag:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(36,84,255,0.05);
+}
+
+.jf-skill-tag.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+/* ── Mobile overlay ── */
+.jf-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Mobile: slide-in drawer ── */
+@media (max-width: 991px) {
+  .job-filters-sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 300px;
+    height: 100vh;
+    max-height: 100vh;
+    z-index: 1000;
+    border-radius: 0 var(--radius-card) var(--radius-card) 0;
+    transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .job-filters-sidebar.mobile-open {
+    left: 0;
+  }
+}

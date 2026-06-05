@@ -1,0 +1,48 @@
+/* ============================================
+   JOB LISTING PAGE
+   ============================================ */
+
+.jl-sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-navbar);
+}
+
+.jl-main {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+/* ── Content Section ── */
+.jl-content-section {
+  padding: 48px 0 64px;
+}
+
+/* ── Two-column layout ── */
+.jl-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.jl-sidebar-col {
+  /* Sidebar column */
+}
+
+.jl-main-col {
+  min-width: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .jl-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .jl-sidebar-col {
+    display: none; /* Hidden on mobile — shown in drawer */
+  }
+}

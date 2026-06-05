@@ -1,0 +1,96 @@
+/* ============================================
+   BOOTSTRAP OVERRIDES
+   ============================================ */
+
+/* Override Bootstrap primary color */
+.btn-primary {
+  background: var(--gradient-primary) !important;
+  border: none !important;
+  border-radius: var(--radius-button) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  padding: 12px 28px !important;
+  box-shadow: var(--shadow-blue) !important;
+  transition: var(--transition-base) !important;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 32px rgba(36, 84, 255, 0.4) !important;
+}
+
+/* Navbar override */
+.navbar {
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+/* Container max-width */
+.container {
+  max-width: 1280px;
+}
+
+/* Card overrides */
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-md);
+}
+
+/* Badge overrides */
+.badge {
+  font-weight: var(--font-weight-medium);
+}
+
+/* Form overrides */
+.form-control {
+  border-radius: var(--radius-input);
+  border: 1px solid var(--color-border);
+  padding: 12px 20px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  transition: var(--transition-base);
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(36, 84, 255, 0.1);
+  outline: none;
+}
+
+/* Select */
+.form-select {
+  border-radius: var(--radius-input);
+  border: 1px solid var(--color-border);
+  padding: 12px 20px;
+  font-family: var(--font-family);
+  transition: var(--transition-base);
+}
+
+.form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(36, 84, 255, 0.1);
+}
+
+/* Nav tabs override */
+.nav-tabs {
+  border: none;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  border-radius: var(--radius-button) !important;
+  color: var(--color-text-gray);
+  font-weight: var(--font-weight-medium);
+  padding: 10px 24px;
+  transition: var(--transition-base);
+}
+
+.nav-tabs .nav-link.active {
+  background: var(--color-primary) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.nav-tabs .nav-link:hover:not(.active) {
+  background: rgba(36, 84, 255, 0.08);
+  color: var(--color-primary);
+}
