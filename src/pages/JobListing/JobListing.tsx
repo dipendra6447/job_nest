@@ -1,167 +1,211 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState } from 'react';
 import './JobListing.css';
 
 // Shared components
-import Navbar from '../../components/Navbar/Navbar';
+import MarketplaceHeader from '../../components/MarketplaceHeader/MarketplaceHeader';
+
+import MapWidget from '../../components/MapWidget/MapWidget';
+import RefineSearch from '../../components/RefineSearch/RefineSearch';
+import SearchResultCard from '../../components/SearchResultCard/SearchResultCard';
+import SearchPagination from '../../components/SearchPagination/SearchPagination';
 import Newsletter from '../../components/Newsletter/Newsletter';
 import Footer from '../../components/Footer/Footer';
+import MobileBottomNav from '../../components/MobileBottomNav/MobileBottomNav';
 
-// Listing-specific components
-import ListingHero from '../../components/ListingHero/ListingHero';
-import JobFilters, { FilterState, defaultFilters } from '../../components/JobFilters/JobFilters';
-import ActiveFilters from '../../components/ActiveFilters/ActiveFilters';
-import JobResultsHeader, { SortOption, ViewMode } from '../../components/JobResultsHeader/JobResultsHeader';
-import JobListingGrid from '../../components/JobListingGrid/JobListingGrid';
-import FeaturedCompanies from '../../components/FeaturedCompanies/FeaturedCompanies';
-import CareerResources from '../../components/CareerResources/CareerResources';
-import ListingCTA from '../../components/ListingCTA/ListingCTA';
-import Pagination from '../../components/Pagination/Pagination';
+// Data
+import { mockSearchResults, categoryCounts } from '../../utils/mockSearchResults';
 
-import { mockJobs } from '../../utils/mockJobs';
+type CategoryTab = 'all' | 'jobs' | 'gigs' | 'businesses' | 'services' | 'events';
 
-const PER_PAGE = 12;
-const TOTAL_MOCK_JOBS = 1248;
-const TOTAL_PAGES = Math.ceil(TOTAL_MOCK_JOBS / PER_PAGE);
+interface TabItem {
+  key: CategoryTab;
+  label: string;
+}
 
-const NAVBAR_HEIGHT = 80; // keep in sync with --navbar-height
+const tabs: TabItem[] = [
+  { key: 'all', label: 'All' },
+  { key: 'jobs', label: 'Jobs' },
+  { key: 'gigs', label: 'Gigs' },
+  { key: 'businesses', label: 'Businesses' },
+  { key: 'services', label: 'Services' },
+  { key: 'events', label: 'Events' },
+];
+
+const HEADER_HEIGHT = 74;
 
 const JobListing: React.FC = () => {
-  // State
-  const [filters, setFilters] = useState<FilterState>(defaultFilters);
-  const [sortBy, setSortBy] = useState<SortOption>('relevance');
-  const [viewMode, setViewMode] = useState<ViewMode>('grid');
+  const [activeTab, setActiveTab] = useState<CategoryTab>('all');
   const [currentPage, setCurrentPage] = useState(1);
-  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
 
-  // Simulate loading on filter/sort change
-  const simulateLoad = useCallback(() => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 600);
-  }, []);
+  const [location, setLocation] = useState('dayton');
+  const [distance, setDistance] = useState('25');
+  const [jobType, setJobType] = useState('all');
+  const [expLevel, setExpLevel] = useState('all');
+  const [sortBy, setSortBy] = useState('relevant');
 
-  const handleFiltersChange = useCallback((newFilters: FilterState) => {
-    setFilters(newFilters);
-    setCurrentPage(1);
-    simulateLoad();
-  }, [simulateLoad]);
+  const totalPages = 16;
 
-  const handleFilterRemove = useCallback((field: keyof FilterState, value: string) => {
-    setFilters((prev) => {
-      const arr = prev[field];
-      if (Array.isArray(arr)) {
-        return { ...prev, [field]: arr.filter((v: string) => v !== value) };
-      }
-      return { ...prev, [field]: '' };
-    });
-    setCurrentPage(1);
-    simulateLoad();
-  }, [simulateLoad]);
-
-  const handleSearch = useCallback((_keyword: string, _location: string, _category: string) => {
-    setCurrentPage(1);
-    simulateLoad();
-  }, [simulateLoad]);
-
-  const handleSortChange = useCallback((sort: SortOption) => {
-    setSortBy(sort);
-    setCurrentPage(1);
-    simulateLoad();
-  }, [simulateLoad]);
-
-  const handlePageChange = useCallback((page: number) => {
+  const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 320, behavior: 'smooth' });
-    simulateLoad();
-  }, [simulateLoad]);
-
-  // For demo, just show all mock jobs (with loading simulation)
-  const displayedJobs = useMemo(() => {
-    if (loading) return [];
-    return mockJobs;
-  }, [loading]);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <>
-      {/* Navbar */}
-      <div className="jl-sticky-header">
-        <Navbar />
-      </div>
+      {/* Marketplace-style header */}
+      <MarketplaceHeader />
 
-      <main className="jl-main" style={{ paddingTop: `${NAVBAR_HEIGHT}px` }}>
-        {/* Hero */}
-        <ListingHero onSearch={handleSearch} />
+      <main
+        className="jl2-main"
+        style={{ paddingTop: `${HEADER_HEIGHT}px` }}
+      >
+        <div className="jl2-layout">
+          {/* ── Center: Main Content ── */}
+          <div className="jl2-center">
+            {/* Search Results Header */}
+            <div className="jl2-results-header">
+              <div className="jl2-results-header-top">
 
-        {/* Main content area */}
-        <section className="jl-content-section" aria-label="Job listings and filters">
-          <div className="container">
-            <div className="jl-layout">
-              {/* Sidebar */}
-              <div className="jl-sidebar-col">
-                <JobFilters
-                  filters={filters}
-                  onFiltersChange={handleFiltersChange}
-                  mobileOpen={mobileFilterOpen}
-                  onMobileClose={() => setMobileFilterOpen(false)}
-                />
+                <div>
+                  <h1 className="jl2-search-title">
+                    Search results for "<span className="jl2-keyword">marketing manager</span>"
+                  </h1>
+                  <p className="jl2-search-meta">
+                    {categoryCounts.all} results found in <strong>Dayton, OH</strong>
+                  </p>
+                </div>
               </div>
 
-              {/* Main column */}
-              <div className="jl-main-col">
-                {/* Active Filters */}
-                <ActiveFilters
-                  filters={filters}
-                  onRemove={handleFilterRemove}
-                  onClearAll={() => handleFiltersChange(defaultFilters)}
-                />
+              {/* Category Tabs */}
+              <div className="jl2-tabs-row">
+                <div className="jl2-tabs-scroll">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.key}
+                      className={`jl2-tab ${activeTab === tab.key ? 'jl2-tab-active' : ''}`}
+                      onClick={() => { setActiveTab(tab.key); setCurrentPage(1); }}
+                      type="button"
+                      id={`jl2-tab-${tab.key}`}
+                    >
+                      {tab.label}
+                      <span className="jl2-tab-count">
+                        ({categoryCounts[tab.key]})
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-                {/* Results Header */}
-                <JobResultsHeader
-                  totalJobs={TOTAL_MOCK_JOBS}
-                  currentPage={currentPage}
-                  perPage={PER_PAGE}
-                  sortBy={sortBy}
-                  viewMode={viewMode}
-                  onSortChange={handleSortChange}
-                  onViewChange={setViewMode}
-                  onMobileFilterOpen={() => setMobileFilterOpen(true)}
-                />
-
-                {/* Job Grid */}
-                <JobListingGrid
-                  jobs={displayedJobs}
-                  viewMode={viewMode}
-                  loading={loading}
-                />
-
-                {/* Pagination */}
-                {!loading && (
-                  <Pagination
-                    currentPage={currentPage}
-                    totalPages={TOTAL_PAGES}
-                    onPageChange={handlePageChange}
-                  />
-                )}
+              {/* Filter Row */}
+              <div className="jl2-filter-row">
+                <div className="jl2-filter-selects">
+                  <div className="jl2-filter-group">
+                    <span className="jl2-filter-label">Location</span>
+                    <select
+                      className="jl2-filter-select"
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      aria-label="Location"
+                    >
+                      <option value="dayton">Dayton, OH</option>
+                      <option value="columbus">Columbus, OH</option>
+                      <option value="remote">Remote</option>
+                    </select>
+                  </div>
+                  <div className="jl2-filter-group">
+                    <span className="jl2-filter-label">Distance</span>
+                    <select
+                      className="jl2-filter-select"
+                      value={distance}
+                      onChange={(e) => setDistance(e.target.value)}
+                      aria-label="Distance"
+                    >
+                      <option value="10">10 miles</option>
+                      <option value="25">25 miles</option>
+                      <option value="50">50 miles</option>
+                    </select>
+                  </div>
+                  <div className="jl2-filter-group">
+                    <span className="jl2-filter-label">Job Type</span>
+                    <select
+                      className="jl2-filter-select"
+                      value={jobType}
+                      onChange={(e) => setJobType(e.target.value)}
+                      aria-label="Job Type"
+                    >
+                      <option value="all">All Types</option>
+                      <option value="full">Full-time</option>
+                      <option value="part">Part-time</option>
+                      <option value="contract">Contract</option>
+                    </select>
+                  </div>
+                  <div className="jl2-filter-group">
+                    <span className="jl2-filter-label">Experience Level</span>
+                    <select
+                      className="jl2-filter-select"
+                      value={expLevel}
+                      onChange={(e) => setExpLevel(e.target.value)}
+                      aria-label="Experience Level"
+                    >
+                      <option value="all">All Levels</option>
+                      <option value="entry">Entry Level</option>
+                      <option value="mid">Mid Level</option>
+                      <option value="senior">Senior Level</option>
+                    </select>
+                  </div>
+                  <div className="jl2-filter-group">
+                    <span className="jl2-filter-label">Sort by</span>
+                    <select
+                      className="jl2-filter-select"
+                      value={sortBy}
+                      onChange={(e) => setSortBy(e.target.value)}
+                      aria-label="Sort by"
+                    >
+                      <option value="relevant">Most Relevant</option>
+                      <option value="newest">Newest</option>
+                      <option value="salary">Highest Salary</option>
+                    </select>
+                  </div>
+                </div>
+                <button className="jl2-filter-btn" type="button">
+                  <i className="bi bi-funnel" />
+                  <span>Filters</span>
+                </button>
               </div>
             </div>
+
+            {/* Search Results List */}
+            <div className="jl2-results-list" role="list" aria-label="Search results">
+              {mockSearchResults.map((result) => (
+                <SearchResultCard key={result.id} result={result} />
+              ))}
+            </div>
+
+            {/* Pagination */}
+            <SearchPagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
           </div>
-        </section>
 
-        {/* Featured Companies */}
-        <FeaturedCompanies />
+          {/* ── Right Sidebar ── */}
+          <aside className="jl2-right-sidebar" aria-label="Map and filters">
+            <div className="jl2-right-sticky">
+              {/* Map — rename title */}
+              <div className="jl2-map-wrapper">
+                <MapWidget />
+              </div>
+              <RefineSearch />
+            </div>
+          </aside>
+        </div>
 
-        {/* Career Resources */}
-        <CareerResources />
-
-        {/* CTA Banner */}
-        <ListingCTA />
-
-        {/* Newsletter */}
+        {/* Newsletter & Footer (full width) */}
         <Newsletter />
       </main>
-
-      {/* Footer */}
       <Footer />
+      <MobileBottomNav />
     </>
   );
 };

@@ -1,0 +1,108 @@
+/* ============================================
+   TOP PICKS SECTION
+   ============================================ */
+
+.mp-top-picks {
+  padding-bottom: 8px;
+}
+
+.mp-top-picks-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.mp-top-picks-title {
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.mp-view-all {
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.mp-view-all:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* ── Grid ── */
+.mp-top-picks-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1399px) {
+  .mp-top-picks-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1199px) {
+  .mp-top-picks-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .mp-top-picks-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mp-top-picks-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+
+  .mp-top-picks-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mp-top-picks-grid .mp-opp-card {
+    min-width: 220px;
+    max-width: 260px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .mp-top-picks-title {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 575px) {
+  .mp-top-picks {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mp-top-picks-header {
+    padding-right: 20px;
+  }
+
+  .mp-top-picks-grid .mp-opp-card {
+    min-width: 200px;
+    max-width: 240px;
+  }
+}

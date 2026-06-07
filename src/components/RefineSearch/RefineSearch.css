@@ -1,0 +1,304 @@
+/* ============================================
+   REFINE SEARCH PANEL
+   ============================================ */
+
+.rs-panel {
+  background: #fff;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  padding: 20px;
+}
+
+.rs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.rs-title {
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin: 0;
+}
+
+.rs-clear-all {
+  background: none;
+  border: none;
+  font-family: var(--font-family);
+  font-size: 12.5px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  padding: 0;
+}
+
+.rs-clear-all:hover {
+  text-decoration: underline;
+}
+
+/* ── Field ── */
+.rs-field {
+  margin-bottom: 20px;
+}
+
+.rs-label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy);
+  margin-bottom: 8px;
+}
+
+.rs-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.rs-label-row .rs-label {
+  margin-bottom: 0;
+}
+
+.rs-label-value {
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+}
+
+/* ── Input ── */
+.rs-input-wrap {
+  position: relative;
+}
+
+.rs-input {
+  width: 100%;
+  padding: 8px 32px 8px 12px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-size: 13px;
+  color: var(--color-navy);
+  background: #fff;
+  transition: var(--transition-base);
+}
+
+.rs-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(36, 84, 255, 0.08);
+}
+
+.rs-input::placeholder {
+  color: #9CA3AF;
+}
+
+.rs-input-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-text-gray);
+  cursor: pointer;
+  padding: 2px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.rs-input-clear:hover {
+  color: var(--color-navy);
+}
+
+/* ── Range Slider ── */
+.rs-range {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--color-border);
+  border-radius: 2px;
+  outline: none;
+  margin-top: 4px;
+}
+
+.rs-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(36, 84, 255, 0.3);
+  transition: var(--transition-fast);
+}
+
+.rs-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.rs-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(36, 84, 255, 0.3);
+}
+
+.rs-range-marks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.rs-range-mark {
+  font-size: 10px;
+  color: var(--color-text-gray);
+}
+
+/* ── Checkboxes ── */
+.rs-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rs-checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.rs-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.rs-checkbox {
+  display: none;
+}
+
+.rs-checkbox-custom {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.rs-checkbox:checked + .rs-checkbox-custom {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.rs-checkbox:checked + .rs-checkbox-custom::after {
+  content: '';
+  width: 8px;
+  height: 5px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 3px;
+}
+
+.rs-checkbox-label {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-navy);
+  font-size: 12.5px;
+}
+
+.rs-checkbox-count {
+  font-size: 11px;
+  color: var(--color-text-gray);
+  margin-left: auto;
+}
+
+/* ── Select ── */
+.rs-select {
+  width: 100%;
+  padding: 8px 32px 8px 12px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-size: 13px;
+  color: var(--color-navy);
+  background: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236B7280' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.rs-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(36, 84, 255, 0.08);
+}
+
+/* ── Actions ── */
+.rs-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.rs-apply-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-family);
+  font-size: 13.5px;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.rs-apply-btn:hover {
+  background: var(--color-primary-dark);
+  box-shadow: 0 4px 14px rgba(36, 84, 255, 0.3);
+}
+
+.rs-reset-btn {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-gray);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.rs-reset-btn:hover {
+  color: var(--color-navy);
+  background: var(--color-bg);
+}

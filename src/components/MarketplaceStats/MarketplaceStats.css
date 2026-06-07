@@ -1,0 +1,106 @@
+/* ============================================
+   MARKETPLACE STATS
+   ============================================ */
+
+.mp-stats-section {
+  padding: 56px 0;
+  background: var(--color-bg);
+}
+
+.mp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.mp-stat-card {
+  background: #fff;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  padding: 24px 16px;
+  text-align: center;
+  transition: var(--transition-base);
+}
+
+.mp-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(36, 84, 255, 0.1);
+  border-color: rgba(36, 84, 255, 0.2);
+}
+
+.mp-stat-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: rgba(36, 84, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--color-primary);
+  margin: 0 auto 14px;
+}
+
+.mp-stat-value {
+  font-size: 28px;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-navy);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.mp-stat-label {
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-gray);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1199px) {
+  .mp-stats-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+
+  .mp-stat-value {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 991px) {
+  .mp-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mp-stats-section {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .mp-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .mp-stat-card {
+    padding: 20px 12px;
+  }
+
+  .mp-stat-value {
+    font-size: 22px;
+  }
+
+  .mp-stat-icon-wrap {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .mp-stats-section {
+    padding: 32px 0;
+  }
+}

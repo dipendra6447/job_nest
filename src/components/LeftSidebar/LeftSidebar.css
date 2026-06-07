@@ -1,0 +1,385 @@
+/* ============================================
+   LEFT SIDEBAR
+   ============================================ */
+
+.ls-sidebar {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  background: #fff;
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-base);
+}
+
+/* ── Logo ── */
+.ls-logo-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.ls-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.ls-logo-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--gradient-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(36, 84, 255, 0.25);
+}
+
+.ls-logo-text {
+  font-size: 18px;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-navy);
+  letter-spacing: -0.3px;
+  line-height: 1;
+}
+
+.ls-logo-accent {
+  color: var(--color-primary);
+}
+
+.ls-logo-tagline {
+  font-size: 11px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-gray);
+  margin-left: 1px;
+}
+
+.ls-close-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-text-gray);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* ── Scrollable Content ── */
+.ls-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.08) transparent;
+}
+
+.ls-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ls-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.08);
+  border-radius: 2px;
+}
+
+/* ── Nav Sections ── */
+.ls-nav-section {
+  margin-bottom: 8px;
+}
+
+.ls-nav-bottom-section {
+  padding-top: 4px;
+  border-top: 1px solid var(--color-border);
+  margin-top: 4px;
+}
+
+/* ── Nav Item ── */
+.ls-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: var(--font-weight-medium);
+  color: #4B5563;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.ls-nav-item i {
+  font-size: 17px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: var(--transition-fast);
+}
+
+.ls-nav-item:hover {
+  background: rgba(36, 84, 255, 0.06);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.ls-nav-item:hover i {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+/* Active state */
+.ls-nav-active {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+  font-weight: var(--font-weight-semibold);
+}
+
+.ls-nav-active i {
+  opacity: 1 !important;
+  color: #fff !important;
+}
+
+.ls-nav-active:hover {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+}
+
+/* Badge */
+.ls-nav-badge {
+  margin-left: auto;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+}
+
+.ls-nav-active .ls-nav-badge {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Nav Group ── */
+.ls-nav-group {
+  margin-bottom: 8px;
+}
+
+.ls-group-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 14px;
+  background: none;
+  border: none;
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-gray);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: var(--transition-fast);
+}
+
+.ls-group-toggle:hover {
+  color: var(--color-navy);
+}
+
+.ls-group-toggle i {
+  font-size: 11px;
+}
+
+.ls-group-items {
+  margin-top: 2px;
+}
+
+/* ── Profile Completion Card ── */
+.ls-profile-card {
+  background: linear-gradient(135deg, #EEF2FF, #F0F0FF);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 12px;
+  border: 1px solid rgba(36, 84, 255, 0.08);
+}
+
+.ls-profile-card-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ls-profile-progress-ring {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.ls-ring-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ls-ring-bg {
+  fill: none;
+  stroke: #E5E7EB;
+  stroke-width: 3;
+}
+
+.ls-ring-fill {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dasharray 0.8s ease;
+}
+
+.ls-ring-text {
+  fill: var(--color-primary);
+  font-size: 9px;
+  font-weight: 700;
+  text-anchor: middle;
+  font-family: var(--font-family);
+}
+
+.ls-profile-card-title {
+  font-size: 13px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.ls-profile-card-desc {
+  font-size: 11px;
+  color: var(--color-text-gray);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.ls-profile-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.ls-profile-card-cta:hover {
+  color: var(--color-primary-dark);
+  gap: 8px;
+}
+
+.ls-profile-card-cta i {
+  font-size: 12px;
+  transition: var(--transition-fast);
+}
+
+/* ── Bottom: Switch Account ── */
+.ls-bottom {
+  border-top: 1px solid var(--color-border);
+  padding: 12px 10px;
+  flex-shrink: 0;
+}
+
+.ls-switch-account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.ls-switch-account:hover {
+  background: rgba(36, 84, 255, 0.04);
+}
+
+.ls-switch-icon {
+  font-size: 24px;
+  color: var(--color-text-gray);
+  line-height: 1;
+}
+
+.ls-switch-text {
+  flex: 1;
+}
+
+.ls-switch-label {
+  display: block;
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy);
+  line-height: 1.3;
+}
+
+.ls-switch-sub {
+  display: block;
+  font-size: 11px;
+  color: var(--color-text-gray);
+}
+
+.ls-switch-chevron {
+  font-size: 13px;
+  color: var(--color-text-gray);
+}
+
+/* ── Mobile Overlay ── */
+.ls-overlay {
+  display: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .ls-sidebar {
+    transform: translateX(-100%);
+    z-index: 2001;
+    box-shadow: none;
+  }
+
+  .ls-sidebar-open {
+    transform: translateX(0);
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .ls-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2000;
+    backdrop-filter: blur(2px);
+  }
+
+  .ls-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

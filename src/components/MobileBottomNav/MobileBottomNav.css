@@ -1,0 +1,97 @@
+/* ============================================
+   MOBILE BOTTOM NAVIGATION
+   ============================================ */
+
+.mp-bottom-nav {
+  display: none;
+}
+
+/* Show only on mobile */
+@media (max-width: 767px) {
+  .mp-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-navbar);
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--color-border);
+    padding: 6px 0;
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.mp-bn-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: var(--transition-fast);
+  position: relative;
+  min-width: 56px;
+}
+
+.mp-bn-icon-wrap {
+  position: relative;
+  font-size: 20px;
+  color: var(--color-text-gray);
+  transition: var(--transition-fast);
+  line-height: 1;
+}
+
+.mp-bn-active .mp-bn-icon-wrap {
+  color: var(--color-primary);
+}
+
+.mp-bn-label {
+  font-size: 10px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-gray);
+  transition: var(--transition-fast);
+  line-height: 1.2;
+}
+
+.mp-bn-active .mp-bn-label {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Active indicator dot */
+.mp-bn-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+/* Badge */
+.mp-bn-badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #EF4444;
+  color: #fff;
+  font-size: 9px;
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+}

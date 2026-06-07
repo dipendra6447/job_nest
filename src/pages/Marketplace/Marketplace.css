@@ -1,0 +1,105 @@
+/* ============================================
+   MARKETPLACE PAGE
+   ============================================ */
+
+.mp-page {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+/* ── Top Section ── */
+.mp-top-section {
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0;
+}
+
+/* ── Two-Column Layout ── */
+.mp-content-area {
+  padding: 28px 0 0;
+}
+
+.mp-two-col {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 28px;
+  align-items: start;
+}
+
+.mp-main-col {
+  min-width: 0;
+}
+
+.mp-sidebar-col {
+  min-width: 0;
+}
+
+.mp-sidebar-sticky {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ── Responsive ── */
+
+/* Large Screens */
+@media (min-width: 1400px) {
+  .mp-two-col {
+    grid-template-columns: 1fr 340px;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1199px) {
+  .mp-two-col {
+    grid-template-columns: 1fr 290px;
+    gap: 22px;
+  }
+}
+
+/* Tablet — sidebar drops below */
+@media (max-width: 991px) {
+  .mp-two-col {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .mp-sidebar-sticky {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .mp-sidebar-sticky > :last-child {
+    grid-column: 1 / -1;
+  }
+
+  .mp-content-area {
+    padding: 20px 0 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .mp-sidebar-sticky {
+    grid-template-columns: 1fr;
+  }
+
+  .mp-content-area {
+    padding: 16px 0 0;
+  }
+
+  /* Add bottom padding for mobile nav */
+  .mp-page {
+    padding-bottom: 70px;
+  }
+}
+
+@media (max-width: 575px) {
+  .mp-two-col {
+    gap: 20px;
+  }
+}

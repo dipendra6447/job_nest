@@ -1,0 +1,74 @@
+/* ============================================
+   TRENDING SEARCHES WIDGET
+   ============================================ */
+
+.mp-trending-widget {
+  background: #fff;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  padding: 16px;
+}
+
+.mp-trending-title {
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin: 0 0 14px;
+}
+
+.mp-trending-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mp-trending-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(237, 240, 247, 0.6);
+}
+
+.mp-trending-item:last-child {
+  border-bottom: none;
+}
+
+.mp-trending-link {
+  font-size: 13.5px;
+  color: var(--color-navy);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: var(--transition-fast);
+}
+
+.mp-trending-link:hover {
+  color: var(--color-primary);
+}
+
+.mp-trending-pct {
+  font-size: 12.5px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-success);
+  display: flex;
+  align-items: center;
+}
+
+.mp-trending-pct i {
+  font-size: 16px;
+  margin-right: -2px;
+}
+
+.mp-trending-see-all {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.mp-trending-see-all:hover {
+  text-decoration: underline;
+}

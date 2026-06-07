@@ -1,0 +1,159 @@
+/* ============================================
+   MAP WIDGET
+   ============================================ */
+
+.mp-map-widget {
+  background: #fff;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.mp-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 12px;
+}
+
+.mp-map-title {
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin: 0;
+}
+
+.mp-map-link {
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.mp-map-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Map Container ── */
+.mp-map-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.mp-map-canvas {
+  position: absolute;
+  inset: 0;
+  background: #e8f0e8;
+  overflow: hidden;
+}
+
+/* ── Roads ── */
+.mp-map-road {
+  position: absolute;
+  background: #fff;
+}
+
+.mp-road-h1 { top: 25%; left: 0; right: 0; height: 4px; }
+.mp-road-h2 { top: 55%; left: 0; right: 0; height: 5px; }
+.mp-road-h3 { top: 80%; left: 0; right: 0; height: 3px; }
+.mp-road-v1 { top: 0; bottom: 0; left: 20%; width: 4px; }
+.mp-road-v2 { top: 0; bottom: 0; left: 55%; width: 5px; }
+.mp-road-v3 { top: 0; bottom: 0; left: 82%; width: 3px; }
+.mp-road-d1 {
+  top: 10%;
+  left: 30%;
+  width: 120px;
+  height: 3px;
+  transform: rotate(35deg);
+}
+
+/* ── Water ── */
+.mp-map-water {
+  position: absolute;
+  top: 30%;
+  right: -10%;
+  width: 50%;
+  height: 40%;
+  background: #b8d4e3;
+  border-radius: 40% 0 0 60%;
+  opacity: 0.6;
+}
+
+/* ── Parks ── */
+.mp-map-park {
+  position: absolute;
+  border-radius: 50%;
+  background: #a8d5a2;
+  opacity: 0.7;
+}
+
+.mp-park-1 { top: 12%; left: 8%; width: 35px; height: 28px; }
+.mp-park-2 { top: 60%; left: 35%; width: 40px; height: 30px; border-radius: 30%; }
+
+/* ── Pins ── */
+.mp-map-pin {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.mp-map-pin:hover {
+  transform: rotate(-45deg) scale(1.2);
+}
+
+.mp-map-pin i {
+  transform: rotate(45deg);
+  font-size: 10px;
+  color: #fff;
+}
+
+.mp-pin-job { background: var(--color-primary); }
+.mp-pin-gig { background: #7B3EFF; }
+.mp-pin-business { background: #EF4444; }
+.mp-pin-event { background: #F59E0B; }
+.mp-pin-service { background: #14B87A; }
+
+/* Pin positions */
+.mp-pin-1 { top: 18%; left: 30%; }
+.mp-pin-2 { top: 40%; left: 60%; }
+.mp-pin-3 { top: 55%; left: 25%; }
+.mp-pin-4 { top: 30%; left: 75%; }
+.mp-pin-5 { top: 70%; left: 50%; }
+.mp-pin-6 { top: 15%; left: 70%; }
+
+/* ── Search Area Button ── */
+.mp-map-search-area {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 18px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy);
+  cursor: pointer;
+  transition: var(--transition-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.mp-map-search-area:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}

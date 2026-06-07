@@ -1,0 +1,47 @@
+/* ============================================
+   MARKETPLACE HERO
+   ============================================ */
+
+.mp-hero {
+  padding: 32px 0 8px;
+}
+
+.mp-hero-heading {
+  font-size: 26px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+
+.mp-hero-desc {
+  font-size: 15px;
+  color: var(--color-text-gray);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .mp-hero {
+    padding: 24px 0 4px;
+  }
+
+  .mp-hero-heading {
+    font-size: 22px;
+  }
+
+  .mp-hero-desc {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .mp-hero {
+    padding: 20px 0 0;
+  }
+
+  .mp-hero-heading {
+    font-size: 20px;
+  }
+}
