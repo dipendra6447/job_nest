@@ -1,0 +1,57 @@
+/* ============================================================
+   JOB DETAILS PAGE
+   ============================================================ */
+
+.jd-page {
+  background: var(--color-bg);
+  padding-top: calc(var(--navbar-height) + 12px);
+  min-height: 100vh;
+}
+
+/* ── Two-column layout ── */
+.jd-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 28px;
+  align-items: start;
+  margin-top: 28px;
+  margin-bottom: 40px;
+}
+
+.jd-body-col {
+  min-width: 0;
+}
+
+.jd-sidebar-col {
+  position: sticky;
+  top: calc(var(--navbar-height) + 24px);
+}
+
+/* Tab placeholder */
+.jd-tab-placeholder {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 60px;
+  text-align: center;
+  color: var(--color-text-gray);
+  box-shadow: var(--shadow-sm);
+}
+
+.jd-tab-placeholder i {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+  color: var(--color-border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .jd-layout {
+    grid-template-columns: 1fr;
+  }
+  .jd-sidebar-col {
+    position: static;
+    order: -1;
+  }
+}

@@ -1,0 +1,161 @@
+/* ============================================================
+   READY TO APPLY BANNER
+   ============================================================ */
+
+.jdrb-banner {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 28px 32px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: var(--shadow-sm);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.jdrb-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Icon */
+.jdrb-icon-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.jdrb-icon-wrap > .bi {
+  font-size: 52px;
+  color: rgba(36, 84, 255, 0.15);
+}
+
+.jdrb-check-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 24px;
+  height: 24px;
+  background: var(--color-success);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+.jdrb-check-badge i {
+  color: white;
+  font-size: 12px;
+}
+
+/* Text */
+.jdrb-text {
+  flex: 1;
+}
+
+.jdrb-heading {
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin-bottom: 4px;
+}
+
+.jdrb-sub {
+  font-size: 13px;
+  color: var(--color-text-gray);
+  margin-bottom: 8px;
+}
+
+.jdrb-security {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-text-gray);
+}
+
+.jdrb-security i {
+  color: var(--color-success);
+}
+
+/* Actions */
+.jdrb-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+  min-width: 160px;
+}
+
+.jdrb-btn-apply {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-button);
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-blue);
+  text-align: center;
+}
+
+.jdrb-btn-apply:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(36, 84, 255, 0.4);
+  color: white;
+}
+
+.jdrb-btn-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: white;
+  color: var(--color-navy);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-button);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.jdrb-btn-save:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.jdrb-btn-save.saved {
+  background: rgba(36, 84, 255, 0.06);
+  color: var(--color-primary);
+  border-color: rgba(36, 84, 255, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .jdrb-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .jdrb-actions {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .jdrb-btn-apply {
+    flex: 1;
+  }
+}

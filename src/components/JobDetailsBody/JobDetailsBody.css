@@ -1,0 +1,217 @@
+/* ============================================================
+   JOB DETAILS BODY
+   ============================================================ */
+
+.jdb-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Card wrapper for each section */
+.jdb-section {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 28px 32px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.jdb-section-title {
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin-bottom: 14px;
+}
+
+.jdb-section-sub {
+  font-size: 17px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin-bottom: 14px;
+}
+
+.jdb-para {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--color-text-gray);
+  margin: 0;
+}
+
+.jdb-para strong {
+  color: var(--color-navy);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Lists */
+.jdb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jdb-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--color-text-gray);
+  line-height: 1.6;
+}
+
+/* Check icon */
+.jdb-check-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-primary);
+  font-size: 15px;
+}
+
+/* Dot */
+.jdb-dot-icon {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  margin-top: 7px;
+}
+
+/* ── Meta summary grid ── */
+.jdb-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.jdb-meta-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: var(--transition-base);
+}
+
+.jdb-meta-card:hover {
+  border-color: rgba(36, 84, 255, 0.2);
+  box-shadow: var(--shadow-sm);
+}
+
+.jdb-meta-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(36, 84, 255, 0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.jdb-meta-icon i {
+  color: var(--color-primary);
+  font-size: 16px;
+}
+
+.jdb-meta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.jdb-meta-label {
+  font-size: 11px;
+  color: var(--color-text-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: var(--font-weight-medium);
+}
+
+.jdb-meta-value {
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Security note ── */
+.jdb-security-note {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(36, 84, 255, 0.04);
+  border: 1px solid rgba(36, 84, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 18px 24px;
+  margin-bottom: 16px;
+}
+
+.jdb-security-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(36, 84, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.jdb-security-icon i {
+  color: var(--color-primary);
+  font-size: 20px;
+}
+
+.jdb-security-title {
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy);
+  margin-bottom: 2px;
+}
+
+.jdb-security-desc {
+  font-size: 12px;
+  color: var(--color-text-gray);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .jdb-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .jdb-section {
+    padding: 20px;
+  }
+
+  .jdb-meta-grid {
+    grid-template-columns: 1fr 1fr;
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .jdb-meta-card {
+    padding: 10px 12px;
+  }
+}

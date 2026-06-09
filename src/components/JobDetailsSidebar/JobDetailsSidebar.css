@@ -1,0 +1,340 @@
+/* ============================================================
+   JOB DETAILS SIDEBAR
+   ============================================================ */
+
+.jds-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.jds-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.jds-card-title {
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── Company Overview ── */
+.jds-company-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.jds-co-logo {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #2454FF, #7B3EFF);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(36, 84, 255, 0.2);
+}
+
+.jds-co-logo span {
+  color: white;
+  font-size: 16px;
+  font-weight: var(--font-weight-extrabold);
+}
+
+.jds-co-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.jds-co-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.jds-co-name {
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+}
+
+.jds-co-verified {
+  color: var(--color-primary);
+  font-size: 13px;
+}
+
+.jds-co-industry {
+  font-size: 12px;
+  color: var(--color-text-gray);
+}
+
+.jds-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.jds-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.jds-star {
+  font-size: 13px;
+}
+
+.jds-star-filled {
+  color: #F59E0B;
+}
+
+.jds-rating-num {
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+}
+
+.jds-rating-count {
+  font-size: 12px;
+  color: var(--color-text-gray);
+}
+
+.jds-co-size {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-text-gray);
+  margin-bottom: 12px;
+}
+
+.jds-co-size i {
+  color: var(--color-primary);
+}
+
+.jds-co-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--color-text-gray);
+  margin-bottom: 14px;
+}
+
+.jds-co-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  transition: var(--transition-fast);
+}
+
+.jds-co-profile-link:hover {
+  color: var(--color-primary-dark);
+  gap: 8px;
+}
+
+/* ── Job Overview List ── */
+.jds-overview-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.jds-overview-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.jds-ov-icon {
+  width: 34px;
+  height: 34px;
+  background: rgba(36, 84, 255, 0.07);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.jds-ov-icon i {
+  color: var(--color-primary);
+  font-size: 14px;
+}
+
+.jds-ov-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.jds-ov-label {
+  font-size: 11px;
+  color: var(--color-text-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.jds-ov-value {
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy);
+}
+
+/* ── Benefits ── */
+.jds-benefits-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jds-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--color-navy);
+  font-weight: var(--font-weight-medium);
+}
+
+.jds-benefit-icon {
+  width: 30px;
+  height: 30px;
+  background: rgba(20, 184, 122, 0.08);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.jds-benefit-icon i {
+  color: var(--color-success);
+  font-size: 14px;
+}
+
+/* ── Share ── */
+.jds-share-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.jds-share-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition-base);
+  border: none;
+  text-decoration: none;
+}
+
+.jds-share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.jds-share-link {
+  background: var(--color-bg);
+  color: var(--color-navy);
+  border: 1px solid var(--color-border);
+}
+
+.jds-share-fb {
+  background: #1877F2;
+  color: white;
+}
+
+.jds-share-x {
+  background: #000;
+  color: white;
+}
+
+.jds-share-li {
+  background: #0A66C2;
+  color: white;
+}
+
+.jds-share-email {
+  background: var(--color-bg);
+  color: var(--color-navy);
+  border: 1px solid var(--color-border);
+}
+
+/* ── Not the right fit ── */
+.jds-not-fit {
+  background: linear-gradient(135deg, rgba(36, 84, 255, 0.04), rgba(123, 62, 255, 0.04));
+  border: 1px solid rgba(36, 84, 255, 0.12);
+}
+
+.jds-not-fit-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.jds-not-fit-title {
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin-bottom: 4px;
+}
+
+.jds-not-fit-desc {
+  font-size: 12px;
+  color: var(--color-text-gray);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.jds-create-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 20px;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-button);
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-blue);
+}
+
+.jds-create-profile-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(36, 84, 255, 0.35);
+  color: white;
+}
+
+.jds-not-fit-illustration {
+  font-size: 52px;
+  color: rgba(36, 84, 255, 0.15);
+  flex-shrink: 0;
+}

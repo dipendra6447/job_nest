@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import JobListing from './pages/JobListing/JobListing'
 import Marketplace from './pages/Marketplace/Marketplace'
+import JobDetails from './pages/JobDetails/JobDetails'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/jobs" element={<JobListing />} />
+          <Route path="/jobs/:id" element={<JobDetails />} />
           <Route path="/marketplace" element={<Marketplace />} />
         </Routes>
       </div>

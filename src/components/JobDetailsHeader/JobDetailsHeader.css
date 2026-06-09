@@ -1,0 +1,248 @@
+/* ============================================================
+   JOB DETAILS HEADER
+   ============================================================ */
+
+.jdh-wrapper {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+  padding: 28px 32px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 12px;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Left */
+.jdh-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Logo */
+.jdh-logo {
+  width: 68px;
+  height: 68px;
+  background: linear-gradient(135deg, #2454FF, #7B3EFF);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(36, 84, 255, 0.25);
+}
+
+.jdh-logo span {
+  color: white;
+  font-size: 22px;
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: -0.5px;
+}
+
+/* Info */
+.jdh-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.jdh-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.jdh-job-title {
+  font-size: 26px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.jdh-new-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  background: rgba(20, 184, 122, 0.12);
+  color: var(--color-success);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-badge);
+  border: 1px solid rgba(20, 184, 122, 0.25);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.jdh-company-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.jdh-company-name {
+  font-size: 15px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+}
+
+.jdh-company-name:hover {
+  color: var(--color-primary-dark);
+}
+
+.jdh-verified {
+  color: var(--color-primary);
+  font-size: 14px;
+}
+
+.jdh-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.jdh-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-gray);
+}
+
+.jdh-meta-item i {
+  color: var(--color-primary);
+  font-size: 13px;
+}
+
+.jdh-dot {
+  color: var(--color-border);
+  font-size: 10px;
+}
+
+.jdh-salary-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.jdh-salary-row i {
+  color: var(--color-success);
+  font-size: 14px;
+}
+
+.jdh-salary {
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-success);
+}
+
+.jdh-posted-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.jdh-posted,
+.jdh-applicants {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-gray);
+}
+
+/* Actions */
+.jdh-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+  min-width: 160px;
+}
+
+.jdh-btn-apply {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-button);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-blue);
+  text-align: center;
+}
+
+.jdh-btn-apply:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(36, 84, 255, 0.4);
+  color: white;
+}
+
+.jdh-btn-save,
+.jdh-btn-share {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: white;
+  color: var(--color-navy);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-button);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.jdh-btn-save:hover,
+.jdh-btn-share:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.jdh-btn-save.saved {
+  background: rgba(36, 84, 255, 0.06);
+  color: var(--color-primary);
+  border-color: rgba(36, 84, 255, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .jdh-wrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .jdh-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .jdh-btn-apply {
+    flex: 1;
+  }
+
+  .jdh-job-title {
+    font-size: 20px;
+  }
+}

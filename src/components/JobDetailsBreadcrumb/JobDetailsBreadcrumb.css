@@ -1,0 +1,58 @@
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+
+.jdb-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0 12px;
+  flex-wrap: wrap;
+}
+
+.jdb-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  transition: var(--transition-base);
+  white-space: nowrap;
+}
+
+.jdb-back-link:hover {
+  color: var(--color-primary-dark);
+  transform: translateX(-2px);
+}
+
+.jdb-crumb-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.jdb-crumb-link {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-gray);
+  transition: var(--transition-fast);
+}
+
+.jdb-crumb-link:hover {
+  color: var(--color-primary);
+}
+
+.jdb-sep {
+  font-size: 11px;
+  color: var(--color-border);
+}
+
+.jdb-crumb-current {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy);
+}
