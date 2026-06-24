@@ -6,8 +6,8 @@ const navLinks = [
   { label: "Find Job", href: "/jobs" },
   { label: "Employers", href: "/#hiring" },
   { label: "Candidates", href: "/#discover" },
+  { label: "Pricing", href: "/subscription" },
   { label: "Blog", href: "/#blog" },
-  { label: "Contact", href: "/#newsletter" },
 ];
 
 const Navbar: React.FC = () => {

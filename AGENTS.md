@@ -1,22 +1,50 @@
-# AGENTS.md
-
-# Job Portal Listing Page Development Guide
+# =====================================================
+# SUBSCRIPTION PAGE DEVELOPMENT GUIDE
+# =====================================================
 
 ## Project Context
 
-The Home Page has already been completed and approved.
+The Home Page and Job Listing Page have already been completed and approved.
 
-Your task is to build a new **Job Listing Page** while preserving the exact design language, branding, visual hierarchy, spacing system, typography, animations, and component quality used throughout the Home Page.
+Build a premium Subscription & Pricing Page that feels like a natural extension of the existing JobNest platform.
 
-### Critical Requirements
+The page should clearly communicate premium offerings for:
 
-* DO NOT modify any existing Home Page code.
-* DO NOT redesign existing components.
-* DO NOT change colors, spacing, typography, shadows, border radius, or animation styles.
-* The Listing Page must feel like a natural extension of the Home Page.
-* Reuse existing shared components whenever possible.
+- Job Seekers
+- Employers
+- Business Promoters
 
-The final experience should feel like a premium enterprise recruitment platform similar to LinkedIn Jobs, Indeed Premium, Wellfound, and Glassdoor.
+The design should match the quality of:
+
+- LinkedIn Premium
+- Indeed Premium
+- Glassdoor
+- Wellfound
+- AngelList Talent
+
+---
+
+# Business Rules
+
+## Job Seeker
+
+- Search jobs is free.
+- First 3 job applications are free.
+- From the 4th application onward, a subscription is required.
+- Premium plans unlock unlimited applications.
+
+## Employer
+
+- Companies can post up to 3 jobs free.
+- From the 4th posting onward, a subscription is required.
+- Premium plans unlock unlimited job postings.
+
+## Business Promotion
+
+- Business promotion is always paid.
+- Promotion duration is configured by Admin.
+- Expired promotions automatically lose visibility.
+- Active promotions receive priority placement.
 
 ---
 
@@ -24,591 +52,317 @@ The final experience should feel like a premium enterprise recruitment platform 
 
 Required:
 
-* React JS
-* TypeScript
-* HTML5
-* CSS3
-* Bootstrap 5
-* React Hooks
-* Functional Components
-
-Allowed:
-
-```txt
-React + TypeScript + Bootstrap 5 + CSS3
-```
-
-Optional:
-
-```txt
-Vanilla JavaScript
-```
-
-Use Vanilla JS only when absolutely necessary.
+- Next.js 15+
+- React
+- TypeScript
+- Bootstrap 5
+- GSAP
+- ScrollTrigger
+- CSS3
 
 Do NOT use:
 
-* Tailwind CSS
-* Next.js
-* Material UI
-* Chakra UI
-* Styled Components
-* jQuery
-* Class Components
+- Tailwind CSS
+- Material UI
+- Chakra UI
+- Styled Components
+- jQuery
 
 ---
 
-# Design System Inheritance
+# Design Theme
 
-The Listing Page must inherit the existing Home Page design system.
+Luxury SaaS Experience
 
-## Color Palette
+Premium Black & Gold Theme
 
-```css
-Primary Blue: #2454FF;
-Gradient Blue: #1448FF;
-Purple Accent: #7B3EFF;
-Dark Navy: #0B1739;
-Footer Navy: #071B6B;
-Background: #F8FAFF;
-Border: #EDF0F7;
-Text Gray: #6B7280;
-Success Green: #14B87A;
-```
+Enterprise Recruitment Platform
 
-## Typography
+Modern Glassmorphism Design
 
-Font Family:
+---
 
-```css
-font-family: "Inter", sans-serif;
-```
+# Color Palette
 
-### H1
-
-```css
-font-size: 62px;
-font-weight: 800;
-line-height: 1.1;
-```
-
-### H2
-
-```css
-font-size: 42px;
-font-weight: 700;
-```
-
-### Paragraph
-
-```css
-font-size: 16px;
-line-height: 1.8;
-color: #6B7280;
-```
+Primary Gold: #D4AF37
+Dark Gold: #B8860B
+Background Black: #0A0A0A
+Card Background: #111111
+Border Gold: rgba(212,175,55,0.2)
+White: #FFFFFF
+Secondary Text: #B0B0B0
 
 ---
 
 # Project Structure
 
-```txt
 src/
 │
-├── pages/
-│   └── JobListing/
-│       ├── JobListing.tsx
-│       └── JobListing.css
+├── app/
+│   └── subscription/
+│       └── page.tsx
 │
 ├── components/
 │
-│   ├── ListingHero/
-│   │   ├── ListingHero.tsx
-│   │   └── ListingHero.css
-│   │
-│   ├── JobFilters/
-│   │   ├── JobFilters.tsx
-│   │   └── JobFilters.css
-│   │
-│   ├── ActiveFilters/
-│   │   ├── ActiveFilters.tsx
-│   │   └── ActiveFilters.css
-│   │
-│   ├── JobResultsHeader/
-│   │   ├── JobResultsHeader.tsx
-│   │   └── JobResultsHeader.css
-│   │
-│   ├── JobListingGrid/
-│   │   ├── JobListingGrid.tsx
-│   │   ├── JobCard.tsx
-│   │   └── JobListingGrid.css
-│   │
-│   ├── FeaturedCompanies/
-│   │   ├── FeaturedCompanies.tsx
-│   │   └── FeaturedCompanies.css
-│   │
-│   ├── CareerResources/
-│   │   ├── CareerResources.tsx
-│   │   └── CareerResources.css
-│   │
-│   ├── ListingCTA/
-│   │   ├── ListingCTA.tsx
-│   │   └── ListingCTA.css
-│   │
-│   └── Pagination/
-│       ├── Pagination.tsx
-│       └── Pagination.css
-```
+│   ├── PricingHero/
+│   ├── BillingToggle/
+│   ├── JobSeekerPlans/
+│   ├── EmployerPlans/
+│   ├── BusinessPromotionPlans/
+│   ├── ComparisonTable/
+│   ├── PremiumBenefits/
+│   ├── Testimonials/
+│   ├── FAQ/
+│   └── SubscriptionCTA/
+│
+├── styles/
+│   └── subscription.css
 
 ---
 
 # Page Layout
 
-Build the page in the following order:
+1. Shared Navbar
 
-## 1. Shared Navbar
+Reuse existing Navbar.
 
-Reuse existing Navbar component.
-
-Requirements:
-
-* No design modifications
-* No spacing changes
-* No color changes
-* Preserve all interactions
+No modifications allowed.
 
 ---
 
-## 2. Listing Hero Section
+2. Hero Section
 
-Purpose:
+Badge:
+✨ Premium Membership Plans
 
-Provide a premium search experience.
+Heading:
+Unlock More Opportunities With JobNest Premium
 
-Content:
+Description:
+Get unlimited job applications, premium employer tools, and business promotion features with flexible subscription plans.
 
-* Breadcrumb Navigation
-* Large Heading
-* Supporting Description
-* Keyword Search
-* Location Search
-* Category Dropdown
-* Search Button
-
-Example Heading:
-
-```txt
-Discover Your Dream Career
-```
-
-Example Description:
-
-```txt
-Browse thousands of verified opportunities from leading companies around the world.
-```
+Buttons:
+- View Plans
+- Contact Sales
 
 Design:
-
-* Premium gradient background
-* Glassmorphism search panel
-* Floating abstract shapes
-* Subtle blur effects
-* Soft shadows
+- Animated gold particles
+- Black gradient background
+- Glassmorphism effects
+- Floating glow elements
 
 ---
 
-## 3. Job Filters Sidebar
+3. Billing Toggle
 
-Desktop:
+Options:
 
-* Sticky left sidebar
+- Daily
+- Weekly
+- Monthly
 
-Mobile:
+Default:
+Monthly
 
-* Slide-in filter drawer
-
-Filters:
-
-* Job Category
-* Job Type
-* Work Mode
-* Experience Level
-* Salary Range
-* Company Size
-* Posted Date
-* Required Skills
-
-UI Requirements:
-
-* Bootstrap Accordion
-* Premium checkboxes
-* Custom radio buttons
-* Toggle switches
-* Sticky positioning
+GSAP animated indicator.
 
 ---
 
-## 4. Active Filters Section
+4. Job Seeker Plans
 
-Display selected filters.
+Free Plan
 
-Example:
-
-```txt
-React
-TypeScript
-Remote
-Full Time
-₹10L+
-```
+Price:
+₹0
 
 Features:
 
-* Remove single filter
-* Clear all filters
-* Smooth animations
+✓ Search Unlimited Jobs
+✓ First 3 Applications Free
+✓ Basic Profile
+✓ Apply Tracking
+
+Premium Plan
+
+Daily:
+₹29/day
+
+Weekly:
+₹99/week
+
+Monthly:
+₹299/month
+
+Features:
+
+✓ Unlimited Applications
+✓ Priority Visibility
+✓ Featured Candidate Badge
+✓ Resume Enhancement
+✓ Analytics Dashboard
+✓ Premium Support
+
+Badge:
+Most Popular
 
 ---
 
-## 5. Results Header
+5. Employer Plans
 
-Display:
+Free Plan
 
-```txt
-Showing 1–12 of 1,248 Jobs
-```
+Price:
+₹0
 
-Include:
+Features:
 
-* Sort Dropdown
-* Grid View Toggle
-* List View Toggle
-* Save Search Button
+✓ Post Up To 3 Jobs
+✓ Company Profile
+✓ Applicant Management
 
----
+Professional Plan
 
-## 6. Job Listing Grid
+Daily:
+₹49/day
 
-Desktop:
+Weekly:
+₹199/week
 
-```txt
-3 Columns
-```
+Monthly:
+₹599/month
 
-Tablet:
+Features:
 
-```txt
-2 Columns
-```
-
-Mobile:
-
-```txt
-1 Column
-```
-
-Use Bootstrap Grid System.
+✓ Unlimited Job Posting
+✓ Featured Jobs
+✓ Recruitment Dashboard
+✓ Candidate Shortlisting
+✓ Verification Badge
+✓ Hiring Analytics
 
 ---
 
-# Job Card Design
+6. Business Promotion Plans
 
-Each card must contain:
+Price:
 
-## Header
+Daily:
+₹99/day
 
-* Company Logo
-* Featured Badge (optional)
+Weekly:
+₹499/week
 
-## Content
+Monthly:
+₹1499/month
 
-* Job Title
-* Company Name
-* Location
-* Salary Range
-* Experience Level
-* Employment Type
+Features:
 
-## Skills Section
+✓ Homepage Promotion
+✓ Featured Business Placement
+✓ Search Ranking Boost
+✓ Banner Placement
+✓ Analytics Dashboard
+✓ Lead Generation Support
 
-Examples:
-
-```txt
-React
-TypeScript
-Node.js
-AWS
-MongoDB
-```
-
-## Description
-
-2–3 line preview.
-
-## Footer
-
-* Posted Time
-* Apply Now Button
+Admin controls promotion duration.
 
 ---
 
-# Card Hover Effects
+7. Feature Comparison Table
 
-Use:
+Columns:
 
-```css
-transition: all 0.3s ease;
-```
+- Feature
+- Free
+- Job Seeker Premium
+- Employer Premium
+- Business Promotion
 
-Effects:
+Features:
 
-* Slight lift
-* Enhanced shadow
-* Border glow
-* Smooth scaling
+- Job Applications
+- Job Posting
+- Featured Visibility
+- Business Promotion
+- Analytics
+- Priority Support
+- Verification Badge
 
----
-
-## 7. Featured Companies Section
-
-Display premium company cards.
-
-Include:
-
-* Logo
-* Company Name
-* Industry
-* Open Positions
-
-Examples:
-
-```txt
-Google
-Microsoft
-Amazon
-Adobe
-Netflix
-Spotify
-```
-
-Design:
-
-* Glassmorphism cards
-* Hover interactions
-* Consistent spacing
+Use gold checkmarks.
 
 ---
 
-## 8. Career Resources Section
-
-Purpose:
-
-Provide career guidance.
+8. Premium Benefits Section
 
 Cards:
 
-```txt
-Resume Building Tips
-Interview Preparation
-Salary Negotiation Guide
-Remote Work Success
-Career Growth Strategies
-```
-
-Design:
-
-Reuse Home Page blog card styling.
+🚀 Faster Hiring
+💼 Better Opportunities
+📈 Growth Analytics
+⭐ Priority Visibility
+🔒 Verified Profiles
+🎯 Better Reach
 
 ---
 
-## 9. Recruitment CTA Banner
-
-Premium call-to-action section.
-
-Headline:
-
-```txt
-Looking to Hire Top Talent?
-```
-
-Buttons:
-
-```txt
-Post a Job
-```
-
-```txt
-Contact Sales
-```
-
-Design:
-
-* Gradient background
-* Glassmorphism layer
-* Floating decorations
-* Enterprise SaaS appearance
-
----
-
-## 10. Pagination Section
+9. Testimonials
 
 Include:
 
-* Previous
-* Next
-* Page Numbers
+- Job Seeker Review
+- Employer Review
+- Business Promotion Review
 
-Requirements:
+Glassmorphism cards.
 
-* Active page highlighted
-* Smooth hover animations
-* Mobile-friendly layout
+Auto slider.
 
 ---
 
-## 11. Newsletter Section
+10. FAQ
 
-Reuse existing Newsletter component.
+Questions:
 
-No modifications allowed.
-
----
-
-## 12. Footer
-
-Reuse existing Footer component.
-
-No modifications allowed.
+- How many applications are free?
+- How many jobs can companies post for free?
+- What happens after free limits?
+- Can I cancel anytime?
+- How does promotion work?
+- Who controls promotion duration?
 
 ---
 
-# HTML5 Requirements
+11. CTA Section
 
-Use semantic structure.
+Heading:
 
-Required:
+Ready To Unlock Premium Features?
 
-```html
-<header>
-<nav>
-<main>
-<section>
-<article>
-<aside>
-<footer>
-```
+Description:
 
-Accessibility:
+Choose a plan and accelerate your hiring, job search, or business growth.
 
-* aria-label
-* semantic headings
-* keyboard navigation
-* proper focus states
-* descriptive alt attributes
+Buttons:
+
+- Get Premium
+- Contact Sales
 
 ---
 
-# Bootstrap 5 Requirements
+# GSAP Requirements
 
-Use Bootstrap for:
+Required Animations:
 
-* Grid Layout
-* Responsive Design
-* Containers
-* Flex Utilities
-* Accordions
-* Offcanvas Filters
+- Hero Fade Up
+- Card Stagger
+- ScrollTrigger
+- Floating Gold Shapes
+- Card Hover Scale
+- FAQ Reveal
+- CTA Reveal
+- Magnetic Buttons
 
-Preferred Classes:
-
-```txt
-container
-container-fluid
-row
-col-lg-4
-col-md-6
-col-sm-12
-d-flex
-align-items-center
-justify-content-between
-gap-3
-```
-
----
-
-# CSS Guidelines
-
-Use separate CSS files per component.
-
-Requirements:
-
-* No inline styles
-* No CSS-in-JS
-* No Tailwind CSS
-* No Styled Components
-
-Use CSS for:
-
-* Branding
-* Animations
-* Gradients
-* Glassmorphism
-* Card Effects
-* Hover States
-
----
-
-# Responsive Design
-
-Breakpoints:
-
-Desktop:
-
-```txt
-1200px+
-```
-
-Laptop:
-
-```txt
-992px–1199px
-```
-
-Tablet:
-
-```txt
-768px–991px
-```
-
-Mobile:
-
-```txt
-320px–767px
-```
-
-Requirements:
-
-* Fully responsive layout
-* Collapsible filters
-* Mobile search experience
-* Touch-friendly controls
-* No horizontal overflow
-
----
-
-# Animations
-
-Use subtle modern animations.
-
-Examples:
-
-* Fade Up
-* Fade Left
-* Fade Right
-* Scale In
-* Hover Lift
-* Glow Effects
-
-Keep animations smooth and professional.
+Animations must remain elegant and professional.
 
 ---
 
@@ -616,45 +370,18 @@ Keep animations smooth and professional.
 
 Target:
 
-```txt
 90+ Lighthouse Score
-```
 
 Must:
 
-* Lazy-load images
-* Reusable components
-* Optimized rendering
-* Efficient state management
-* Minimal bundle size
-
----
-
-# UI/UX Requirements
-
-Maintain:
-
-* Premium SaaS appearance
-* Enterprise recruitment platform feel
-* Luxury gradients
-* Glassmorphism accents
-* Consistent spacing
-* Large whitespace
-* Modern card system
-* Smooth micro-interactions
-
-Avoid:
-
-* Generic templates
-* Cluttered layouts
-* Inconsistent spacing
-* Outdated UI patterns
-* Excessive Bootstrap styling
+- Lazy Loaded Assets
+- Optimized Images
+- Reusable Components
+- Minimal Re-renders
+- SSR Compatible
 
 ---
 
 # Final Goal
 
-Create a production-ready, enterprise-grade Job Listing Page that perfectly matches the existing Home Page design system.
-
-The page should feel like it was designed alongside the Home Page from day one while maintaining a premium SaaS recruitment experience, responsive design, reusable architecture, accessibility compliance, and modern UI/UX standards.
+Create a world-class luxury SaaS Subscription Page that communicates JobNest premium offerings for Job Seekers, Employers, and Business Promoters while maintaining enterprise-grade UI quality, accessibility compliance, responsive design, and smooth GSAP-powered interactions.
