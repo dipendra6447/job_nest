@@ -5,6 +5,7 @@ import JobListing from './pages/JobListing/JobListing'
 import Marketplace from './pages/Marketplace/Marketplace'
 import JobDetails from './pages/JobDetails/JobDetails'
 import Subscription from './pages/Subscription/Subscription'
+import SubscriptionLight from './pages/SubscriptionLight/SubscriptionLight'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/jobs/:id" element={<JobDetails />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/subscription" element={<Subscription />} />
+          <Route path="/subscription-light" element={<SubscriptionLight />} />
         </Routes>
       </div>
     </BrowserRouter>
