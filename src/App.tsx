@@ -18,6 +18,7 @@ function App() {
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/subscription" element={<Subscription />} />
           <Route path="/subscription-light" element={<SubscriptionLight />} />
+          <Route path="/SubscriptionLight" element={<SubscriptionLight />} />
         </Routes>
       </div>
     </BrowserRouter>
