@@ -1,44 +1,40 @@
-# Dependencies
-node_modules/
-.pnp
+# dependencies
+/node_modules
+/.pnp
 .pnp.js
 
-# Build output
-dist/
-dist-ssr/
-build/
+# testing
+/coverage
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# next.js
+/.next/
+/out/
 
-# Logs
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+.pnpm-debug.log*
 
-# Editor & OS
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# local env files
+.env*.local
+.env
 
-# Vite cache
-.vite/
-vite.config.ts.timestamp-*
+# vercel
+.vercel
 
-# TypeScript
+# typescript
 *.tsbuildinfo
+next-env.d.ts
 
-# Testing
-coverage/
+# Migration scripts we used
+better_migrate.mjs
+migrate_to_next.mjs
+fix-images.mjs

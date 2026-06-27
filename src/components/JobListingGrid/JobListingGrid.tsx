@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import './JobListingGrid.css';
 import JobCard, { Job } from './JobCard';

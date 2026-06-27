@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import "../../styles/subscription.css";
 import "../../styles/subscription-light.css";

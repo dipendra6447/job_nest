@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { marketplaceStats } from '../../utils/mockOpportunities';
 import './MarketplaceStats.css';

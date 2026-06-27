@@ -1,3 +1,4 @@
+"use client";
 import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import "./CategorySection.css";
@@ -158,7 +159,7 @@ const CategorySection: React.FC = () => {
               >
                 <div className="cat-card-img-wrap">
                   <img
-                    src={cat.image}
+                    src={cat.image?.src || cat.image}
                     alt={`${cat.label} category`}
                     className="cat-card-img"
                     loading="lazy"

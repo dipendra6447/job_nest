@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import './BlogSection.css';
 import blogCareerTips from '../../assets/images/blog_career_tips.png';
@@ -106,7 +107,7 @@ const BlogSection: React.FC = () => {
               {/* Cover Image */}
               <div className="blog-card-img-wrap">
                 <img
-                  src={blog.image}
+                  src={blog.image?.src || blog.image}
                   alt={blog.imageAlt}
                   className="blog-card-img"
                   loading="lazy"

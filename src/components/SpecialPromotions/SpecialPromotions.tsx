@@ -1,3 +1,4 @@
+"use client";
 import React, { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import './SpecialPromotions.css';
@@ -130,7 +131,7 @@ const SpecialPromotions: React.FC = () => {
                 {/* RIGHT — laptop image */}
                 <div className="sp-card-image" aria-hidden="true">
                   <img
-                    src={laptopImg}
+                    src={laptopImg?.src || laptopImg}
                     alt="Laptop illustration"
                     className="sp-laptop-img"
                     loading="lazy"

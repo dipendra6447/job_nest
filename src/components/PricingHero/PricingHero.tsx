@@ -1,15 +1,19 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-const particles = Array.from({ length: 20 }, (_, i) => ({
-  id: i,
-  size: Math.random() * 4 + 2,
-  left: Math.random() * 100,
-  delay: Math.random() * 6,
-  duration: Math.random() * 6 + 6,
-}));
-
 const PricingHero: React.FC = () => {
+  const [particles, setParticles] = React.useState<Array<{id: number, size: number, left: number, delay: number, duration: number}>>([]);
+
+  useEffect(() => {
+    setParticles(Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      size: Math.random() * 4 + 2,
+      left: Math.random() * 100,
+      delay: Math.random() * 6,
+      duration: Math.random() * 6 + 6,
+    })));
+  }, []);
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);

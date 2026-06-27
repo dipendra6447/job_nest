@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { Job } from './TrendingJobs';
 
@@ -16,7 +17,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
       {/* Illustration area */}
       <div className="job-card-illustration" style={{ background: job.cardBg }}>
         <img
-          src={job.illustrationImg}
+          src={job.illustrationImg?.src || job.illustrationImg}
           alt={`${job.title} illustration`}
           className="job-card-illus-img"
           loading="lazy"

@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import "./Hero.css";
 import heroBg from "../../assets/images/hero_city_bg.png";

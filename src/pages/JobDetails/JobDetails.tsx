@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import './JobDetails.css';
 import Navbar from '../../components/Navbar/Navbar';

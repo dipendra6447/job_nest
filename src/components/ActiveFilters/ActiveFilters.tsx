@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import './ActiveFilters.css';
 import { FilterState } from '../JobFilters/JobFilters';
