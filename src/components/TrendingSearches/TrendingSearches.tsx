@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { TrendingItem } from '../../utils/mockOpportunities';
 import './TrendingSearches.css';

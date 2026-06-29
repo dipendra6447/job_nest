@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import { RecentItem } from '../../utils/mockOpportunities';
 import './RecentlyPosted.css';

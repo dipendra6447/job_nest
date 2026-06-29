@@ -1,3 +1,4 @@
+"use client";
 import React, { useCallback, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import "./TrendingJobs.css";

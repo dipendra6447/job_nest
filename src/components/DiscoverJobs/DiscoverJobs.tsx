@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import "./DiscoverJobs.css";
 import teamMeetingImg from "../../assets/images/discover_team_meeting.png";
@@ -59,7 +60,7 @@ const DiscoverJobs: React.FC = () => {
                 {/* Large team meeting photo */}
                 <div className="mosaic-img-wrap mosaic-large">
                   <img
-                    src={teamMeetingImg}
+                    src={teamMeetingImg?.src || teamMeetingImg}
                     alt="Professional team meeting in modern office"
                     className="mosaic-img"
                     loading="lazy"
@@ -70,7 +71,7 @@ const DiscoverJobs: React.FC = () => {
                 <div className="mosaic-right-col">
                   <div className="mosaic-img-wrap mosaic-small">
                     <img
-                      src={signingDocImg}
+                      src={signingDocImg?.src || signingDocImg}
                       alt="Business professional signing a document"
                       className="mosaic-img"
                       loading="lazy"
@@ -79,7 +80,7 @@ const DiscoverJobs: React.FC = () => {
 
                   <div className="mosaic-img-wrap mosaic-small">
                     <img
-                      src={colleaguesImg}
+                      src={colleaguesImg?.src || colleaguesImg}
                       alt="Two colleagues having a friendly discussion"
                       className="mosaic-img"
                       loading="lazy"

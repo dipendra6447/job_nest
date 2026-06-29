@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { Opportunity } from '../../utils/mockOpportunities';
 import OpportunityCard from '../OpportunityCard/OpportunityCard';

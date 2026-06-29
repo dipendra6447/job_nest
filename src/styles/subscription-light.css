@@ -624,3 +624,296 @@
 .subscription-light-page .faq-answer {
   overflow: hidden;
 }
+
+/* ── Tier ribbon overrides for light page ── */
+.subscription-light-page .tier-silver.pricing-card {
+  border-color: rgba(150, 150, 150, 0.3);
+  background: #FFFFFF;
+}
+.subscription-light-page .tier-platinum.pricing-card {
+  background: linear-gradient(145deg, #F5F0FF, #EEE8FF);
+  border-color: rgba(123, 79, 255, 0.25);
+}
+.subscription-light-page .tier-gold.pricing-card.featured {
+  background: linear-gradient(145deg, #EEF2FF, #F0F4FF);
+}
+.subscription-light-page .tier-gold .price-amount {
+  background: linear-gradient(135deg, #2454FF, #4F46E5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.subscription-light-page .tier-silver .price-amount {
+  color: #8892B0;
+  -webkit-text-fill-color: #8892B0;
+}
+.subscription-light-page .tier-platinum .price-amount {
+  background: linear-gradient(135deg, #7B4FFF, #B57BFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Per-section billing toggle ── */
+.subscription-light-page .section-billing-toggle {
+  background: #FFFFFF;
+  border-color: rgba(36, 84, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(36, 84, 255, 0.06);
+}
+.subscription-light-page .sbt-btn {
+  color: #4B5680;
+}
+.subscription-light-page .sbt-btn.active {
+  background: linear-gradient(135deg, #2454FF, #4F46E5);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(36, 84, 255, 0.3);
+}
+.subscription-light-page .sbt-btn:not(.active):hover {
+  color: #2454FF;
+  background: rgba(36, 84, 255, 0.06);
+}
+
+/* ── Plan action row ── */
+.subscription-light-page .plan-action-row {
+  background: rgba(36, 84, 255, 0.04);
+  border-color: rgba(36, 84, 255, 0.15);
+}
+.subscription-light-page .btn-compare-plans {
+  border-color: rgba(36, 84, 255, 0.4);
+  color: #2454FF;
+}
+.subscription-light-page .btn-compare-plans:hover {
+  background: rgba(36, 84, 255, 0.08);
+  border-color: #2454FF;
+  box-shadow: 0 8px 24px rgba(36, 84, 255, 0.15);
+}
+.subscription-light-page .role-switch-label {
+  color: #8892B0;
+}
+.subscription-light-page .role-pill {
+  border-color: rgba(36, 84, 255, 0.2);
+  color: #4B5680;
+}
+.subscription-light-page .role-pill:hover {
+  background: rgba(36, 84, 255, 0.08);
+  border-color: rgba(36, 84, 255, 0.45);
+  color: #2454FF;
+}
+
+/* ============================================================
+   COMPARE MODAL — LIGHT THEME
+   position:fixed modals escape .subscription-light-page scope,
+   so we target .compare-modal--light class instead.
+   ============================================================ */
+.compare-modal-overlay.compare-modal--light {
+  background: rgba(240, 244, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.compare-modal-box.compare-modal--light {
+  background: #FFFFFF;
+  border-color: rgba(36, 84, 255, 0.2);
+  box-shadow: 0 40px 100px rgba(36, 84, 255, 0.12), 0 8px 32px rgba(36, 84, 255, 0.08);
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-header {
+  border-bottom-color: rgba(36, 84, 255, 0.1);
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-title {
+  color: #0B1739;
+}
+
+.compare-modal-box.compare-modal--light .gold-text {
+  background: linear-gradient(135deg, #2454FF, #4F46E5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.compare-modal-box.compare-modal--light .sub-badge {
+  background: rgba(36, 84, 255, 0.08);
+  border-color: rgba(36, 84, 255, 0.2);
+  color: #2454FF;
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-close {
+  background: rgba(36, 84, 255, 0.06);
+  border-color: rgba(36, 84, 255, 0.15);
+  color: #4B5680;
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-close:hover {
+  background: rgba(36, 84, 255, 0.12);
+  border-color: #2454FF;
+  color: #2454FF;
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-table thead tr {
+  background: linear-gradient(135deg, #EEF2FF, #E8EEFF);
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-table th {
+  color: #4B5680;
+  border-bottom-color: rgba(36, 84, 255, 0.12);
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-table th:first-child {
+  color: #0B1739;
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-table th.silver-header {
+  color: #8892B0;
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-table th.gold-header {
+  color: #2454FF;
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-table th.platinum-header {
+  color: #7B4FFF;
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-table td {
+  color: #4B5680;
+  border-bottom-color: rgba(36, 84, 255, 0.05);
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-table td:first-child {
+  color: #0B1739;
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-table tbody tr:hover td {
+  background: rgba(36, 84, 255, 0.03);
+}
+
+.compare-modal-box.compare-modal--light .cmp-check {
+  color: #2454FF;
+}
+
+.compare-modal-box.compare-modal--light .cmp-cross {
+  color: #C5CDE8;
+}
+
+.compare-modal-box.compare-modal--light .cmp-check-text {
+  color: #2454FF;
+}
+
+.compare-modal-box.compare-modal--light .cmp-plain {
+  color: #4B5680;
+}
+
+.compare-modal-box.compare-modal--light .compare-modal-footer {
+  border-top-color: rgba(36, 84, 255, 0.1);
+}
+
+.compare-modal-box.compare-modal--light .card-cta-btn.primary {
+  background: linear-gradient(135deg, #2454FF, #4F46E5);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(36, 84, 255, 0.25);
+}
+
+/* ============================================================
+   ROLE SWITCHER MODAL — LIGHT THEME
+   ============================================================ */
+.role-modal-overlay.role-modal--light {
+  background: rgba(240, 244, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.role-modal-box.role-modal--light {
+  background: #FFFFFF;
+  border-color: rgba(36, 84, 255, 0.2);
+  box-shadow: 0 40px 100px rgba(36, 84, 255, 0.14), 0 8px 32px rgba(36, 84, 255, 0.08);
+}
+
+.role-modal-box.role-modal--light .role-modal-accent {
+  background: linear-gradient(135deg, #2454FF, #4F46E5);
+}
+
+.role-modal-box.role-modal--light .role-modal-title {
+  color: #0B1739;
+}
+
+.role-modal-box.role-modal--light .role-modal-subtitle {
+  color: #4B5680;
+}
+
+.role-modal-box.role-modal--light .role-modal-subtitle strong {
+  color: #2454FF;
+}
+
+.role-modal-box.role-modal--light .compare-modal-close {
+  background: rgba(36, 84, 255, 0.06);
+  border-color: rgba(36, 84, 255, 0.15);
+  color: #4B5680;
+}
+
+.role-modal-box.role-modal--light .compare-modal-close:hover {
+  background: rgba(36, 84, 255, 0.12);
+  border-color: #2454FF;
+  color: #2454FF;
+}
+
+.role-modal-box.role-modal--light .role-card-chip {
+  background: rgba(36, 84, 255, 0.04);
+  border-color: rgba(36, 84, 255, 0.15);
+}
+
+.role-modal-box.role-modal--light .role-card-chip--target {
+  background: rgba(36, 84, 255, 0.07);
+}
+
+.role-modal-box.role-modal--light .role-chip-label {
+  color: #8892B0;
+}
+
+.role-modal-box.role-modal--light .role-arrow-line {
+  background: linear-gradient(135deg, #2454FF, #4F46E5);
+}
+
+.role-modal-box.role-modal--light .role-arrow-head {
+  color: #2454FF;
+}
+
+.role-modal-box.role-modal--light .role-modal-desc-box {
+  background: rgba(36, 84, 255, 0.03);
+}
+
+.role-modal-box.role-modal--light .role-modal-desc-text {
+  color: #4B5680;
+}
+
+.role-modal-box.role-modal--light .role-all-label {
+  color: #8892B0;
+}
+
+.role-modal-box.role-modal--light .role-all-chip {
+  background: transparent;
+  border-color: rgba(36, 84, 255, 0.2);
+  color: #4B5680;
+}
+
+.role-modal-box.role-modal--light .role-all-chip:hover {
+  background: rgba(36, 84, 255, 0.07);
+  border-color: rgba(36, 84, 255, 0.45);
+  color: #2454FF;
+}
+
+.role-modal-box.role-modal--light .role-modal-actions {
+  border-top-color: rgba(36, 84, 255, 0.1);
+}
+
+.role-modal-box.role-modal--light .role-btn-cancel {
+  border-color: rgba(36, 84, 255, 0.15);
+  color: #4B5680;
+  background: transparent;
+}
+
+.role-modal-box.role-modal--light .role-btn-cancel:hover {
+  border-color: rgba(36, 84, 255, 0.35);
+  color: #0B1739;
+}
+

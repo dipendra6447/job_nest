@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import './BrowseJobs.css';
 import browseBanner from '../../assets/images/browse_jobs_banner.png';
@@ -86,7 +87,7 @@ const BrowseJobs: React.FC = () => {
       {/* ── Hero Banner ── */}
       <div className="browse-banner-wrap">
         <img
-          src={browseBanner}
+          src={browseBanner?.src || browseBanner}
           alt="Global job opportunities cityscape"
           className="browse-banner-img"
           loading="lazy"

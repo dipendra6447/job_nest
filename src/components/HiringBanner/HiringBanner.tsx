@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import './HiringBanner.css';
 import hiringBg from '../../assets/images/hiring_banner_bg.png';
@@ -11,7 +12,7 @@ const HiringBanner: React.FC = () => {
     >
       {/* Full-width background image */}
       <img
-        src={hiringBg}
+        src={hiringBg?.src || hiringBg}
         alt=""
         className="hiring-bg-img"
         aria-hidden="true"
