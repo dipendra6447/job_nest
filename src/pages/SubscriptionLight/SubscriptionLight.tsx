@@ -6,7 +6,6 @@ import "../Home/Home.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import PricingHero from "../../components/PricingHero/PricingHero";
-import BillingToggle from "../../components/BillingToggle/BillingToggle";
 import JobSeekerPlans from "../../components/JobSeekerPlans/JobSeekerPlans";
 import EmployerPlans from "../../components/EmployerPlans/EmployerPlans";
 import BusinessPromotionPlans from "../../components/BusinessPromotionPlans/BusinessPromotionPlans";
@@ -16,11 +15,32 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import FAQ from "../../components/FAQ/FAQ";
 import SubscriptionCTA from "../../components/SubscriptionCTA/SubscriptionCTA";
 import StatsStrip from "../../components/StatsStrip/StatsStrip";
+import RoleSwitcherModal, { UserRole } from "../../components/RoleSwitcherModal/RoleSwitcherModal";
 
-type BillingPeriod = "daily" | "weekly" | "monthly";
+interface RoleSwitchState {
+  open: boolean;
+  from: UserRole;
+  to: UserRole;
+}
 
 const SubscriptionLight: React.FC = () => {
-  const [billing, setBilling] = useState<BillingPeriod>("monthly");
+  const [roleSwitch, setRoleSwitch] = useState<RoleSwitchState>({
+    open: false,
+    from: "jobseeker",
+    to: "employer",
+  });
+
+  const openRoleSwitch = (from: UserRole, to: UserRole) => {
+    setRoleSwitch({ open: true, from, to });
+  };
+
+  const closeRoleSwitch = () => {
+    setRoleSwitch((prev) => ({ ...prev, open: false }));
+  };
+
+  const confirmRoleSwitch = () => {
+    setRoleSwitch((prev) => ({ ...prev, open: false }));
+  };
 
   return (
     <div className="subscription-page subscription-light-page">
@@ -39,59 +59,76 @@ const SubscriptionLight: React.FC = () => {
         {/* Stats Strip */}
         <StatsStrip />
 
-        {/* 2. Billing Toggle */}
-        <BillingToggle active={billing} onChange={setBilling} />
+        {/* Section Divider */}
+        <div className="sub-section-divider" />
+
+        {/* 2. Job Seeker Plans — per-section billing + compare popup + role switch */}
+        <JobSeekerPlans
+          onRoleSwitch={(to) => openRoleSwitch("jobseeker", to)}
+          isLight
+        />
 
         {/* Section Divider */}
         <div className="sub-section-divider" />
 
-        {/* 3. Job Seeker Plans */}
-        <JobSeekerPlans billing={billing} />
+        {/* 3. Employer Plans — per-section billing + compare popup + role switch */}
+        <EmployerPlans
+          onRoleSwitch={(to) => openRoleSwitch("employer", to)}
+          isLight
+        />
 
         {/* Section Divider */}
         <div className="sub-section-divider" />
 
-        {/* 4. Employer Plans */}
-        <EmployerPlans billing={billing} />
+        {/* 4. Business Promotion Plans — per-section billing + compare popup + role switch */}
+        <BusinessPromotionPlans
+          onRoleSwitch={(to) => openRoleSwitch("business", to)}
+          isLight
+        />
 
         {/* Section Divider */}
         <div className="sub-section-divider" />
 
-        {/* 5. Business Promotion */}
-        <BusinessPromotionPlans billing={billing} />
-
-        {/* Section Divider */}
-        <div className="sub-section-divider" />
-
-        {/* 6. Comparison Table */}
+        {/* 5. Overall Comparison Table */}
         <ComparisonTable />
 
         {/* Section Divider */}
         <div className="sub-section-divider" />
 
-        {/* 7. Premium Benefits */}
+        {/* 6. Premium Benefits */}
         <PremiumBenefits />
 
         {/* Section Divider */}
         <div className="sub-section-divider" />
 
-        {/* 8. Testimonials */}
+        {/* 7. Testimonials */}
         <Testimonials />
 
         {/* Section Divider */}
         <div className="sub-section-divider" />
 
-        {/* 9. FAQ */}
+        {/* 8. FAQ */}
         <FAQ />
 
         {/* Section Divider */}
         <div className="sub-section-divider" />
 
-        {/* 10. CTA */}
+        {/* 9. CTA */}
         <SubscriptionCTA />
       </main>
 
       <Footer />
+
+      {/* Role Switcher Modal — rendered at page level */}
+      {roleSwitch.open && (
+        <RoleSwitcherModal
+          currentRole={roleSwitch.from}
+          targetRole={roleSwitch.to}
+          onConfirm={confirmRoleSwitch}
+          onCancel={closeRoleSwitch}
+          isLight
+        />
+      )}
     </div>
   );
 };

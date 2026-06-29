@@ -1127,3 +1127,702 @@
   border-color: rgba(212,175,55,0.4);
 }
 
+/* ============================================
+   THREE-COLUMN PRICING LAYOUT
+   ============================================ */
+.pricing-cards-row.three-col {
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .pricing-cards-row.three-col {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 380px));
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .pricing-cards-row.three-col {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
+
+/* ============================================
+   TIER RIBBONS — SILVER / GOLD / PLATINUM
+   ============================================ */
+.card-tier-ribbon {
+  position: absolute;
+  top: 16px;
+  right: -28px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 36px;
+  transform: rotate(40deg);
+  transform-origin: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Silver */
+.tier-silver .card-tier-ribbon {
+  background: linear-gradient(135deg, #9E9E9E, #C0C0C0);
+  color: #1a1a1a;
+}
+.tier-silver.pricing-card {
+  border-color: rgba(192,192,192,0.35);
+}
+.tier-silver.pricing-card:hover {
+  box-shadow: 0 20px 60px rgba(192,192,192,0.12);
+  border-color: rgba(192,192,192,0.6);
+}
+.tier-silver .price-amount {
+  color: #C0C0C0;
+}
+
+/* Gold */
+.tier-gold .card-tier-ribbon {
+  background: linear-gradient(135deg, #D4AF37, #F5E27C);
+  color: #000;
+}
+.tier-gold.pricing-card {
+  border-color: rgba(212,175,55,0.45);
+}
+.tier-gold.pricing-card.featured {
+  background: linear-gradient(145deg, #141400, #1a1800);
+  border-color: var(--gold);
+  box-shadow: 0 0 50px rgba(212,175,55,0.25);
+}
+.tier-gold.pricing-card.featured::before { opacity: 1; }
+.tier-gold .price-amount {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Platinum */
+.tier-platinum .card-tier-ribbon {
+  background: linear-gradient(135deg, #7B4FFF, #B57BFF);
+  color: #fff;
+}
+.tier-platinum.pricing-card {
+  border-color: rgba(123,79,255,0.35);
+  background: linear-gradient(145deg, #0f0c1a, #130e22);
+}
+.tier-platinum.pricing-card:hover {
+  box-shadow: 0 20px 60px rgba(123,79,255,0.18);
+  border-color: rgba(123,79,255,0.6);
+}
+.tier-platinum .price-amount {
+  background: linear-gradient(135deg, #B57BFF, #7B4FFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   PER-SECTION BILLING TOGGLE
+   ============================================ */
+.section-billing-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 48px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 50px;
+  padding: 5px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sbt-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 26px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.sbt-btn.active {
+  background: var(--gradient-gold);
+  color: #000;
+  box-shadow: 0 4px 16px rgba(212,175,55,0.35);
+}
+
+.sbt-btn:not(.active):hover {
+  color: var(--gold);
+  background: rgba(212,175,55,0.08);
+}
+
+/* ============================================
+   PLAN ACTION ROW (Compare + Role Switch)
+   ============================================ */
+.plan-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 40px;
+  padding: 24px 28px;
+  background: rgba(212,175,55,0.04);
+  border: 1px solid var(--border-gold);
+  border-radius: 16px;
+}
+
+/* Compare button */
+.btn-compare-plans {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 2px solid rgba(212,175,55,0.45);
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 11px 26px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.btn-compare-plans:hover {
+  background: rgba(212,175,55,0.12);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212,175,55,0.2);
+}
+
+.compare-icon {
+  font-size: 16px;
+}
+
+/* Role switch inline */
+.role-switch-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.role-switch-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--border-gold);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.role-pill:hover {
+  background: rgba(212,175,55,0.1);
+  border-color: rgba(212,175,55,0.5);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   COMPARE PLANS MODAL
+   ============================================ */
+.compare-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeInOverlay 0.25s ease;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.compare-modal-box {
+  background: #111111;
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 780px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 0 80px rgba(212,175,55,0.1);
+  animation: slideUpModal 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes slideUpModal {
+  from { opacity: 0; transform: translateY(40px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.compare-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 28px 32px 20px;
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+  flex-shrink: 0;
+}
+
+.compare-modal-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.compare-modal-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.compare-modal-close:hover {
+  background: rgba(212,175,55,0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: rotate(90deg);
+}
+
+.compare-table-scroll {
+  overflow-x: auto;
+  overflow-y: auto;
+  flex: 1;
+  padding: 24px 32px;
+}
+
+.compare-modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 480px;
+}
+
+.compare-modal-table thead tr {
+  background: linear-gradient(135deg, #161616, #1e1800);
+}
+
+.compare-modal-table th {
+  padding: 16px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(212,175,55,0.2);
+  white-space: nowrap;
+}
+
+.compare-modal-table th:first-child {
+  text-align: left;
+  color: var(--text-white);
+}
+
+.compare-modal-table th.silver-header {
+  color: #C0C0C0;
+}
+
+.compare-modal-table th.gold-header {
+  color: var(--gold);
+}
+
+.compare-modal-table th.platinum-header {
+  color: #B57BFF;
+}
+
+.compare-modal-table td {
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(212,175,55,0.06);
+  transition: background 0.2s ease;
+}
+
+.compare-modal-table td:first-child {
+  text-align: left;
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.compare-modal-table tbody tr:hover td {
+  background: rgba(212,175,55,0.04);
+}
+
+.compare-modal-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Compare table cell renderers */
+.cmp-check {
+  color: var(--gold);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.cmp-cross {
+  color: #444;
+  font-size: 17px;
+}
+
+.cmp-check-text {
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cmp-plain {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.compare-modal-footer {
+  padding: 20px 32px 28px;
+  border-top: 1px solid rgba(212,175,55,0.12);
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.compare-modal-footer .card-cta-btn.primary {
+  max-width: 260px;
+  padding: 14px 36px;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+/* ============================================
+   ROLE SWITCHER MODAL
+   ============================================ */
+.role-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeInOverlay 0.25s ease;
+}
+
+.role-modal-box {
+  background: #111;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 520px;
+  overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.75), 0 0 60px rgba(212,175,55,0.08);
+  animation: slideUpModal 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  position: relative;
+}
+
+.role-modal-accent {
+  height: 4px;
+  background: var(--gradient-gold);
+  width: 100%;
+}
+
+.role-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 16px;
+}
+
+.role-modal-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.role-modal-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 0 28px 20px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.role-modal-subtitle strong {
+  color: var(--gold);
+}
+
+/* Role transition visual */
+.role-transition-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 28px 24px;
+}
+
+.role-card-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.role-card-chip--target {
+  background: rgba(212,175,55,0.06);
+}
+
+.role-chip-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.role-chip-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.role-chip-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.role-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.role-arrow-line {
+  width: 28px;
+  height: 2px;
+  background: var(--gradient-gold);
+  border-radius: 1px;
+}
+
+.role-arrow-head {
+  color: var(--gold);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: -8px;
+}
+
+/* Desc box */
+.role-modal-desc-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 0 28px 24px;
+}
+
+.role-modal-desc-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.role-modal-desc-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* All roles quick-switch */
+.role-all-roles {
+  padding: 0 28px 24px;
+}
+
+.role-all-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+}
+
+.role-all-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.role-all-chip {
+  background: transparent;
+  border: 1px solid rgba(212,175,55,0.25);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.role-all-chip:hover {
+  background: rgba(212,175,55,0.08);
+  border-color: rgba(212,175,55,0.5);
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+
+/* Actions */
+.role-modal-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px 28px 28px;
+  border-top: 1px solid rgba(212,175,55,0.1);
+}
+
+.role-btn-cancel {
+  flex: 1;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.role-btn-cancel:hover {
+  border-color: rgba(255,255,255,0.2);
+  color: var(--text-white);
+}
+
+.role-btn-confirm {
+  flex: 2;
+  border: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.role-btn-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  filter: brightness(1.1);
+}
+
+/* ============================================
+   RESPONSIVE OVERRIDES
+   ============================================ */
+@media (max-width: 600px) {
+  .plan-action-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .compare-modal-box,
+  .role-modal-box {
+    border-radius: 16px;
+  }
+
+  .compare-modal-header,
+  .compare-table-scroll,
+  .compare-modal-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .compare-modal-title,
+  .role-modal-title {
+    font-size: 20px;
+  }
+
+  .role-transition-row {
+    flex-direction: column;
+    padding: 0 20px 20px;
+  }
+
+  .role-arrow {
+    transform: rotate(90deg);
+  }
+
+  .role-card-chip { width: 100%; }
+
+  .role-modal-header,
+  .role-modal-subtitle,
+  .role-modal-desc-box,
+  .role-all-roles,
+  .role-modal-actions {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
