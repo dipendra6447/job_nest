@@ -50,18 +50,39 @@ function getPasswordStrength(pw: string): { level: 'weak' | 'medium' | 'strong';
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function AuthPage() {
-  const [isLogin, setIsLogin] = useState(true);
+  const router = useRouter();
+  
+  // Read from URL on mount
+  const getInitialRole = (): UserRole => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const role = urlParams.get('role');
+      if (role === 'job_seeker' || role === 'job_poster' || role === 'business_promoter') {
+        return role as UserRole;
+      }
+    }
+    return 'job_seeker';
+  };
+
+  const getInitialLoginState = () => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('role')) return false; // Default to signup if role is passed
+    }
+    return true;
+  };
+
+  const [isLogin, setIsLogin] = useState(getInitialLoginState);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [selectedRole, setSelectedRole] = useState<UserRole>('job_seeker');
+  const [selectedRole, setSelectedRole] = useState<UserRole>(getInitialRole);
   const [profile, setProfile] = useState<ProfileFields>({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const router = useRouter();
 
   const formRef = useRef<HTMLDivElement>(null);
   const leftSideRef = useRef<HTMLDivElement>(null);

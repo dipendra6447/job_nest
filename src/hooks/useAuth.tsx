@@ -1,6 +1,8 @@
 "use client";
-import { useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface User {
   id: string;
@@ -25,7 +27,13 @@ interface AuthState {
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
-export function useAuth(): AuthState {
+// ─── Context ─────────────────────────────────────────────────────────────────
+
+const AuthContext = createContext<AuthState | null>(null);
+
+// ─── Provider ─────────────────────────────────────────────────────────────────
+
+export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
@@ -34,7 +42,6 @@ export function useAuth(): AuthState {
     try {
       const token = localStorage.getItem('token');
       const headers: Record<string, string> = {};
-      
       if (token) {
         headers['Authorization'] = `Bearer ${token}`;
       }
@@ -50,7 +57,6 @@ export function useAuth(): AuthState {
           setUser(data.data);
         } else {
           setUser(null);
-          // If backend says not authenticated, clear local token
           localStorage.removeItem('token');
         }
       } else {
@@ -64,17 +70,17 @@ export function useAuth(): AuthState {
   }, []);
 
   useEffect(() => {
-    // 1. Check if token is in URL (from Google OAuth redirect)
+    // Check if token is in URL (from Google OAuth redirect)
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       const tokenFromUrl = params.get('token');
       if (tokenFromUrl) {
         localStorage.setItem('token', tokenFromUrl);
-        // Clean the URL query params
         const newUrl = window.location.pathname + window.location.hash;
         window.history.replaceState({}, document.title, newUrl);
       }
     }
+    // Single fetch at app root — all consumers share this result
     fetchUser();
   }, [fetchUser]);
 
@@ -105,9 +111,10 @@ export function useAuth(): AuthState {
       headers['Authorization'] = `Bearer ${token}`;
     }
 
-    const endpoint = user?.roles[0] === 1 ? '/api/profiles/job-seeker' : 
-                     user?.roles[0] === 2 ? '/api/profiles/employer' : 
-                     '/api/profiles/business-promoter';
+    const endpoint =
+      user?.roles[0] === 1 ? '/api/profiles/job-seeker' :
+      user?.roles[0] === 2 ? '/api/profiles/employer' :
+      '/api/profiles/business-promoter';
 
     const res = await fetch(`${API_BASE}${endpoint}`, {
       method: 'PUT',
@@ -121,16 +128,23 @@ export function useAuth(): AuthState {
       throw new Error(data.message || 'Failed to update profile');
     }
 
-    // Refresh user data to get updated profileCompletion
+    // Refresh user data after update
     await fetchUser();
   }, [user, fetchUser]);
 
-  return {
-    user,
-    isLoading,
-    isLoggedIn: !!user,
-    logout,
-    refetch: fetchUser,
-    updateProfile,
-  };
+  return (
+    <AuthContext.Provider value={{ user, isLoading, isLoggedIn: !!user, logout, refetch: fetchUser, updateProfile }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+// ─── Hook ─────────────────────────────────────────────────────────────────────
+
+export function useAuth(): AuthState {
+  const ctx = useContext(AuthContext);
+  if (!ctx) {
+    throw new Error('useAuth must be used inside <AuthProvider>. Wrap your app with AuthProvider.');
+  }
+  return ctx;
 }

@@ -25,8 +25,12 @@ export default function JobSeekerProfileForm({ initialData }: Props) {
     portfolioUrl: initialData?.portfolioUrl || '',
   });
 
-  const [experience, setExperience] = useState<any[]>(initialData?.experience || []);
-  const [education, setEducation] = useState<any[]>(initialData?.education || []);
+  const [experience, setExperience] = useState<any[]>(
+    initialData?.experience?.length > 0 ? initialData.experience : [{ jobTitle: '', company: '', startDate: '', endDate: '', isCurrent: false, description: '' }]
+  );
+  const [education, setEducation] = useState<any[]>(
+    initialData?.education?.length > 0 ? initialData.education : [{ degree: '', fieldOfStudy: '', institution: '', graduationYear: '' }]
+  );
 
   const [resumeFile, setResumeFile] = useState<File | null>(null);
 
@@ -129,7 +133,7 @@ export default function JobSeekerProfileForm({ initialData }: Props) {
       </div>
       
       {experience.map((exp, idx) => (
-        <div key={idx} className="p-3 mb-3" style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
+        <div key={idx} className="profile-item-card">
           <div className="d-flex justify-content-between mb-3">
             <h5 className="text-white mb-0">Experience {idx + 1}</h5>
             <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => handleRemoveExperience(idx)}>
@@ -167,11 +171,7 @@ export default function JobSeekerProfileForm({ initialData }: Props) {
         </div>
       ))}
 
-      {experience.length === 0 && (
-        <div className="text-center p-4 mb-4" style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '8px' }}>
-          <p className="text-muted mb-0">No experience added yet.</p>
-        </div>
-      )}
+
 
       <h3 className="profile-section-title mt-4">Professional Details</h3>
       <div className="row">
@@ -212,7 +212,7 @@ export default function JobSeekerProfileForm({ initialData }: Props) {
       </div>
 
       {education.map((edu, idx) => (
-        <div key={idx} className="p-3 mb-3" style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
+        <div key={idx} className="profile-item-card">
           <div className="d-flex justify-content-between mb-3">
             <h5 className="text-white mb-0">Education {idx + 1}</h5>
             <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => handleRemoveEducation(idx)}>
@@ -240,11 +240,7 @@ export default function JobSeekerProfileForm({ initialData }: Props) {
         </div>
       ))}
 
-      {education.length === 0 && (
-        <div className="text-center p-4 mb-4" style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '8px' }}>
-          <p className="text-muted mb-0">No education added yet.</p>
-        </div>
-      )}
+
 
       <h3 className="profile-section-title mt-4">Resume & Links</h3>
       <div className="profile-form-group">
